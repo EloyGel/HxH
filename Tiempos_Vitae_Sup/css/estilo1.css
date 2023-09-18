@@ -1,0 +1,25 @@
+html,body{
+  height: 100%;
+}
+
+body{
+  background-image: url(../img/chemistry.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.logo{
+  border-radius:.4rem;
+  background-color:white;
+}
+.contenido{
+  border-top-left-radius: .4rem;
+  border-top-right-radius: .4rem;
+  background-color: white;
+}
+.footer{
+  border-bottom-left-radius: .4rem;
+  border-bottom-right-radius: .4rem;
+  background-color:#E7ECED;
+}

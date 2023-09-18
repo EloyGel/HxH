@@ -1,0 +1,250 @@
+/*Paleta de colores css */
+/*las palabras seguidas de : son elementos que no
+  existen en el html pero se pueden utilizar para 
+  guardar variables, se les conocen como custom properties
+   */
+:root{
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: rgb(235,99,8); /*Brilliant White*/
+    --secundario: rgb(241,241,241); /*Turmeric*/  
+    /* --secundario: rgb(183,17,29); Turmeric*/
+    --gris: rgb(97,91,91); /*Plum Kitten*/
+    --solar: #f4bf3b; /*Solar Power*/
+    --shocking: rgb(183,17,29); /*Shocking Orange*/
+    --flame: rgb(241,241,241); /*Flame orange*/
+    
+    --fuentebold: 'myriad-pro',sans-serif;
+    --fuentelight: 'Montserrat', sans-serif;
+}
+
+/*Configuraciones globales*/
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+/*
+.nav-bg, .servicios , .titulo-estaciones, .sombra-contacto {
+ 
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+*/
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+/* 1rem = 10px la configuración en las etiquetas html y body
+   nos ayudan a que los rems se adapten mejor a la resolución 
+   de la pantalla en la que se visualiza nuestra página
+*/
+
+/**Globales **/
+body{
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: var(--fuentelight); /* fuente principal del proyecto*/
+    /*background-image: linear-gradient(to top,var(--shocking) 0%, var(--secundario) 100%);*/
+    background-color: var(--secundario);
+    overflow-x: hidden;
+}
+
+
+.contenedor{
+    /*max-width toma el rango como maximo y solo si esta
+      disponible, si no toma el 100% que se toma por defecto
+     */
+    max-width:  120rem; 
+    margin: 2rem auto;
+    overflow: hidden;
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(107,107,107,0.56);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(107,107,107,0.56);
+    box-shadow: 0px 5px 15px 0px rgba(107,107,107,0.56);
+    background-color: var(--primario);
+    padding: 1rem;
+    margin: 2rem, 2rem;
+    border-radius: 1rem;
+    /*border-radius nos sirve para aplicar esquinas redondeadas */
+}
+
+.boton /*Diseño de los botones*/{
+    background-color: var(--primario);
+    color: var(--oscuro);
+    padding: 1rem 3rem;
+    margin-top: .5rem;
+    font-size: 1.6rem;
+    text-decoration: none;
+    text-transform: uppercase;  
+    font-weight: bold;
+    border-radius: .5rem;
+    border: 2px solid var(--flame);
+    width: 80%;
+    text-align: center;
+    transition: all .5s ease-in-out;
+    
+}
+
+.boton:hover{
+    
+    transform: translateX(-20px);
+    transition: all .5s ease-in-out;
+    border: 2px solid var(--primario);
+    cursor: pointer;
+}
+
+@media (min-width: 480px) {
+    .boton{
+        width:auto;
+    }
+}
+
+a,p{
+    font-family: var(--fuentelight);
+    text-decoration: none;
+}
+/*Tipografia*/
+
+h1{
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 4rem;
+}
+
+
+h1,h2 {
+    text-align: center;
+    font-family: var(--fuentelight);
+}
+
+
+/*header*/
+
+.logo{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+@media (max-width: 480px) {
+    .logo-T{
+        width: 80%;    
+    }
+}
+
+@media (min-width: 480px) {
+    .logo{
+        width: 80%;
+        margin: 0 auto;      
+    }  
+}
+
+@media (min-width: 768px) {
+    .logo{
+        width: 35%;
+        margin: 0 auto;   
+    }
+}
+@media (min-width: 1280px) {
+    .logo{
+        width: 40%;
+        margin: 0 auto;
+    }
+}
+
+.logo-tomza{
+
+    text-align:center;
+    max-width: 50%;
+}
+
+/*barra de navegacion*/
+
+.nav-bg{
+
+    background-color: var(--primario);
+}
+
+.navegacion-principal{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.navegacion-principal a{
+
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    color:var(--flame);
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: var(--fuentebold);
+}
+
+@media (max-width: 480px) {
+  .navegacion-principal a{
+    font-size: 1.7rem;
+  }
+  
+}
+
+.navegacion-principal a:hover{
+
+    background-color: var(--secundario);
+    color: var(--primario);
+
+}
+
+
+
+
+
+/*footer*/
+
+.derechos{
+    display: grid;
+    text-align: center;
+    color: var(--primario);
+    grid-template-columns: 1fr;
+}
+
+
+@media (min-width: 480px) {
+    .derechos{
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+@media (min-width: 768px) {
+    .derechos{
+        grid: 1fr / repeat(2,1fr);
+    }
+    .eradilla{
+        text-align: left;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-gap: 10px; /* Espacio entre celdas */
+}
+
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
