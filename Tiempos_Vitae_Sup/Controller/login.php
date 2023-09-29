@@ -28,7 +28,7 @@
      else
      if($fila['PERFIL'] === 'admin') {
         $_SESSION['vitae'] = 'admin';
-        header("location:/Tiempos_Vitae_Sup/View/HxH.php");
+        header("location:/Tiempos_Vitae_Sup/View/Admin.php");
      }   
    }
  }

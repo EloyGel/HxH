@@ -66,68 +66,55 @@ else
           <div class="form-group">
            <label for="area">AREA</label>
            <select class="form-control" name="area" id="area" required>
-            <option selected disabled value="">Selecciona una área</option> 
             <?php
             include_once('../Model/Funciones.php');
 
             $fun = new Funciones();
-            $data = $fun->obtenerArea();
-            foreach ($data as $valores):               
-             echo '<option value="'.$valores["id"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
-            endforeach;
-              ?>
+            echo $fun->obtenerArea();
+            ?>
            </select>
           </div>
           <div class="form-group">
             <label for="producto">PRODUCTO</label>
             <select class="form-control" name="producto" id="producto" required>
-              <option selected disabled value="">Selecciona una opción</option>
               <?php
               include_once('../Model/Funciones.php');
 
               $fun = new Funciones();
-              $data = $fun->obtenerProducto();
-              foreach ($data as $valores):
-               echo '<option value="'.$valores["rowid"].'">'.iconv("ISO-8859-1","UTF-8", $valores["description"]).'</option>';
-              endforeach;
+              echo $fun->obtenerProducto();
               ?>
             </select>
           </div>
-          <div class="form-group" id="lote">
-            <label for="lote">LOTE</label>
-            <input required type="text" class="form-control" name="lote" id="lote" placeholder="Escribe tu respuesta">
-          </div> 
-          <div class="form-group">
+          <div class="form-group" id="OTsel" >
             <label for="ot">OT</label>
-            <input required type="text" class="form-control" name="ot" id="ot" placeholder="Escribe tu respuesta">
+            <select class="form-control" name="ot" id="ot" required>
+            <option selected disabled value="">Selecciona una OT</option>
+
+            </select>
+          </div> 
+          <div class="form-group" id="lote">
+           <label for="lote">LOTE</label>
+           <input required type="text" class="form-control" name="lote1" id="lote1" >
           </div> 
           <div class="form-group">
             <label for="lider">LÍDER DE LÍNEA</label>
             <select class="form-control" name="lider" id="lider" required>
-              <option selected disabled value="">Selecciona una opción</option>
               <?php
               include_once('../Model/Funciones.php');
 
               $fun = new Funciones();
-              $data = $fun->obtenerLider();
-              foreach ($data as $valores):
-               echo '<option value="'.$valores["rowid"].'">'.iconv("ISO-8859-1","UTF-8", $valores["NOMBRE"]).'</option>';
-              endforeach;
+              echo $fun->obtenerLider();
               ?>
             </select>
           </div> 
           <div class="form-group">
             <label for="supervisor">SUPERVISOR</label>
             <select class="form-control" name="supervisor" id="supervisor" required>
-              <option selected disabled value="">Selecciona una opción</option>
               <?php
               include_once('../Model/Funciones.php');
 
               $fun = new Funciones();
-              $data = $fun->obtenerSupervisor();
-              foreach ($data as $valores):
-               echo '<option value="'.$valores["rowid"].'">'.iconv("ISO-8859-1","UTF-8", $valores["NOMBRE"]).'</option>';
-              endforeach;
+              echo $fun->obtenerSupervisor();
               ?>
             </select>
           </div> 
@@ -154,15 +141,11 @@ else
           <div class="form-group" id="setup">
             <label for="MotSetup">MOTIVO DE SETUP</label>
             <select class="form-control" name="motivo1" id="MotSetup">
-              <option selected disabled value="">Selecciona una opción</option>
               <?php
               include_once('../Model/Funciones.php');
 
               $fun = new Funciones();
-              $data = $fun->obtenerSETUP();
-              foreach ($data as $valores):               
-               echo '<option value="'.$valores["ROWID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
-              endforeach;
+              echo $fun->obtenerSETUP();
               ?>
             </select>
             <p></p>
@@ -179,15 +162,11 @@ else
           <div class="form-group" id="proceso">
             <label for="TipoProceso">PROCESO</label>
             <select class="form-control" name="motivo2" id="TipoProceso">
-              <option selected disabled>Selecciona una opción</option>
               <?php
               include_once('../Model/Funciones.php');
 
               $fun = new Funciones();
-              $data = $fun->obtenerProceso();
-              foreach ($data as $valores):               
-               echo '<option value="'.$valores["ROWID"].'">'.$valores["DESCRIPCION"].'</option>';
-              endforeach;
+              echo $fun->obtenerProceso();
               ?>
             </select>
             <p></p>
@@ -204,15 +183,11 @@ else
           <div class="form-group" id="paro">
             <label for="MotParo">MOTIVO DEL PARO</label>
             <select class="form-control" name="motivo3" id="MotParo">
-              <option selected disabled>Selecciona una opción</option>
               <?php
               include_once('../Model/Funciones.php');
 
               $fun = new Funciones();
-              $data = $fun->obtenerParo();
-              foreach ($data as $valores):               
-               echo '<option value="'.$valores["ROWID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
-              endforeach;
+              echo $fun->obtenerParo();
               ?>
             </select>
             <p></p>
@@ -249,71 +224,18 @@ else
     </footer>
     -->
             <!-- Bootstrap core JavaScript-->
-    <script src="../js/jquery-3.2.1.slim.min.js"></script>
+    <!--<script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/jquery-3.2.1.slim.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')</script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/div.js"></script> <!--Ocultar Div -->
+    <script src="../js/combobox.js"></script> <!--Combobox dinamico -->
 
-    <script>
-      $(document).ready(function(){
-        //Ocultar Div
-        $("#setup").css("display","none");
-        $("#proceso").css("display","none");
-        $("#paro").css("display","none");
-        $("#FinTurno").css("display","none");
-        
-        $('#estatus').change(function(){
-          if($('#estatus').val() == 'setup'){    //Selección del estatus SETUP
-            $("#setup").css("display","block");
-            $("#proceso").css("display","none");
-            $("#paro").css("display","none");
-            $("#FinTurno").css("display","none"); 
 
-            $("#inspector").css("display","none");
-            $("#observaciones1").css("display","none");
+    <script language="javascript"> //Combo Dinamico
 
-            $('#MotSetup').change(function(){
-             if($('#MotSetup').val() == '5')
-              {$("#inspector").css("display","block");
-               $("#observaciones1").css("display","block");}
-             else
-              {$("#inspector").css("display","none");
-               $("#observaciones1").css("display","block");}
-            });
-   
-          }
-          if($('#estatus').val() == 'proceso'){   //Selección del estatus proceso
-            $("#proceso").css("display","block");
-            $("#setup").css("display","none");
-            $("#paro").css("display","none");
-            $("#FinTurno").css("display","none");
-
-            $("#piezas").css("display","none");
-            $("#observaciones2").css("display","none");
-
-            $('#TipoProceso').change(function(){
-             if($('#TipoProceso').val() != '11')
-              {$("#piezas").css("display","none");
-               $("#observaciones2").css("display","block");}
-             else
-              {$("#piezas").css("display","block");
-               $("#observaciones2").css("display","none");}
-            });
-          }
-          if($('#estatus').val() == 'paro'){     //Selección del estatus paro
-            $("#paro").css("display","block");
-            $("#setup").css("display","none");
-            $("#proceso").css("display","none");
-            $("#FinTurno").css("display","none");;
-          }
-          if($('#estatus').val() == 'fin'){       //Selección del estatus fin
-            $("#FinTurno").css("display","block");
-            $("#setup").css("display","none");
-            $("#proceso").css("display","none");
-            $("#paro").css("display","none");
-          }
-        })
-      });
     </script>
 
   </body>

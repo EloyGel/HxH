@@ -1,7 +1,7 @@
 <?php
  include_once('../Model/db.php');
- $this->conexion = Conexion::getInstance();
 
+ $conexion = Conexion::getInstance();
 
  if(isset($_POST['guardar']))  //Click al botón de guardar
   {
@@ -10,10 +10,10 @@
    $producto = $_POST['producto'];
    $lote = $_POST['lote'];
    $ot = $_POST['ot'];
-   $lider = $_POST['lider'];
+   $lider = $_POST['lider']; 
    $supervisor = $_POST['supervisor'];
    $turno = $_POST['turno'];
-   $es = $_POST['estatus'];
+   $es = $_POST['estatus'];   
 
    if($es == 'setup')
     {
@@ -28,7 +28,7 @@
         $tipo = 'setup1';
         $params = array(':p1' => $tipo,':p2' => $sucursal, ':p3' => $area,':p4' => $producto,':p5' => $lote,':p6' => $ot,':p7' => $lider,':p8' => $supervisor,':p9' => $turno, ':p10' => $es, 
         ':p11' => $motivo1, ':p12' => $observaciones1, ':p13' => $inspector, ':p14' => 0, ':p15' => '' );
-        $query = $this->conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
+        $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
   
         $query->execute($params); 
       }catch (Exception $e) {
@@ -42,7 +42,7 @@
         $tipo = 'setup1';
         $params = array(':p1' => $tipo,':p2' => $sucursal, ':p3' => $area,':p4' => $producto,':p5' => $lote,':p6' => $ot,':p7' => $lider,':p8' => $supervisor,':p9' => $turno, ':p10' => $es, 
         ':p11' => $motivo1, ':p12' => $observaciones1, ':p13' => '', ':p14' => 0, ':p15' => '' );
-        $query = $this->conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
+        $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
   
         $query->execute($params); 
       }catch (Exception $e) {
@@ -64,7 +64,7 @@
         $tipo = 'proceso1';
         $params = array(':p1' => $tipo,':p2' => $sucursal, ':p3' => $area,':p4' => $producto,':p5' => $lote,':p6' => $ot,':p7' => $lider,':p8' => $supervisor,':p9' => $turno, ':p10' => $es, 
         ':p11' => $motivo2, ':p12' => $observaciones2, ':p13' => '', ':p14' => $piezas, ':p15' => '' );
-        $query = $base_de_datos->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
+        $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
   
         $query->execute($params); 
        }catch (Exception $e) {
@@ -78,7 +78,7 @@
         $tipo = 'proceso2';
         $params = array(':p1' => $tipo,':p2' => $sucursal, ':p3' => $area,':p4' => $producto,':p5' => $lote,':p6' => $ot,':p7' => $lider,':p8' => $supervisor,':p9' => $turno, ':p10' => $es, 
         ':p11' => $motivo2, ':p12' => $observaciones2, ':p13' => '', ':p14' => 0, ':p15' => '' );
-        $query = $base_de_datos->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
+        $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
   
         $query->execute($params); 
        }catch (Exception $e) {
@@ -97,7 +97,7 @@
      {
       $params = array(':p1' => $tipo,':p2' => $sucursal, ':p3' => $area,':p4' => $producto,':p5' => $lote,':p6' => $ot,':p7' => $lider,':p8' => $supervisor,':p9' => $turno, ':p10' => $es, 
       ':p11' => $motivo3, ':p12' => $observaciones3, ':p13' => '', ':p14' => 0, ':p15' => $descripcion3 );
-      $query = $base_de_datos->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
+      $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
 
       $query->execute($params); 
      }catch (Exception $e) {
@@ -113,7 +113,7 @@
       {
         $params = array(':p1' => $tipo,':p2' => $sucursal, ':p3' => $area,':p4' => $producto,':p5' => $lote,':p6' => $ot,':p7' => $lider,':p8' => $supervisor,':p9' => $turno, ':p10' => $es, 
           ':p11' => 0, ':p12' => $observaciones4, ':p13' => '', ':p14' => 0, ':p15' => '' );
-        $query = $base_de_datos->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
+        $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15 ");
 
         $query->execute($params); 
        //$resultado = $query->execute($params); 
@@ -123,6 +123,6 @@
      }
     echo "<script>alert('Reporte guardado');</script>";
   }
-  echo "<script> window.location.replace('/Tiempos_VITAE/HxH.php'); </script>";
+  echo "<script> window.location.replace('/Tiempos_VITAE_SUP/View/HxH.php'); </script>";
 
 ?>

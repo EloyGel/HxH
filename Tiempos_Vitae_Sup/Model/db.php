@@ -28,7 +28,8 @@ class Conexion{
     }
 
     public function obtenerConexion() {
-        return $this->base_de_datos;
+        //return $this->base_de_datos;
+        return self::$instance->base_de_datos;
     }
 
 }

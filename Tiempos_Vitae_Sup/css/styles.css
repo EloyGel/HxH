@@ -75,7 +75,7 @@ body{
 
 .boton /*Diseño de los botones*/{
     background-color: var(--primario);
-    color: var(--oscuro);
+    color: var(--secundario);
     padding: 1rem 3rem;
     margin-top: .5rem;
     font-size: 1.6rem;
@@ -84,7 +84,7 @@ body{
     font-weight: bold;
     border-radius: .5rem;
     border: 2px solid var(--flame);
-    width: 80%;
+    width: 200px;
     text-align: center;
     transition: all .5s ease-in-out;
     
@@ -100,9 +100,15 @@ body{
 
 @media (min-width: 480px) {
     .boton{
-        width:auto;
+        width:200px;
     }
 }
+
+.BotonAdmin{
+    display: block;
+    margin: 10px;
+}
+
 
 a,p{
     font-family: var(--fuentelight);
@@ -165,8 +171,9 @@ h1,h2 {
 
 .logo-tomza{
 
-    text-align:center;
-    max-width: 50%;
+    display: block; /* Asegura que la imagen sea un elemento en bloque */
+    margin: 5% auto auto auto; /* Establece márgenes automáticos horizontalmente */
+    max-width: 50%; /* Ajusta el ancho máximo para que no desborde su contenedor */
 }
 
 /*barra de navegacion*/
@@ -248,3 +255,4 @@ h1,h2 {
     border: 1px solid #ccc;
     padding: 10px;
 }
+

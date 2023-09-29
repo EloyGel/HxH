@@ -6,7 +6,7 @@ $ses = $_SESSION['vitae'];
 
 if($ses != null || $ses !=''){
  if($ses == 'admin' || $ses =='supervisor'){
-  echo '<script language="javascript">alert("Bienvenido");</script>';
+  //echo '<script language="javascript">alert("Bienvenido");</script>';
  }
  else
  {
@@ -113,7 +113,7 @@ else
        <option value="VESPERTINO">VESPERTINO</option>
        <option value="NOCTURNO">NOCTURNO</option>
     <select>
-   <button id="btnFiltrar">Buscar</button>
+   <button id="btnFiltrar" class="boton">Buscar</button>
   </form>
 </div>
 
