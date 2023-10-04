@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $("#producto").change(function () {
-        console.log("Evento change del elemento #producto se ha disparado");
         $("#lote1").val("");
         $("#producto option:selected").each(function () { 
             var id_part = $(this).val();

@@ -4,10 +4,10 @@
 
   $conexion = Conexion::getInstance();
 
-  if(isset($_POST['ot'])){
+  if(isset($_POST['ot'])){ 
     $id_part = $_POST['ot'];
 
-    echo obtenerOT($conexion, $id_part);
+    echo obtenerOT($conexion, $id_part); 
   }
   else
   if(isset($_POST['lote'])){
@@ -21,26 +21,13 @@
     $params = array(':p1' => 'OT', ':p2' => $id_part, ':p3' => '');
     $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
     $query->execute($params);
-    $num = $query->rowCount();
+    $num = $query->rowCount(); //Función para contar el número de registros afectados por la consulta
     $data = $query->fetchAll();
     $html = '<option selected disabled value="">Selecciona una OT</option>';
 
     foreach ($data as $valores):
       $html .= '<option value="'.$valores["OT"].'">'.iconv("ISO-8859-1","UTF-8", $valores["OT"]).'</option>';
     endforeach;
-
-    /*if($num > 1){
-      foreach ($data as $valores):
-        $html .= '<option value="'.$valores["OT"].'">'.iconv("ISO-8859-1","UTF-8", $valores["OT"]).'</option>';
-      endforeach;
-    }
-    else
-    if($num == 1){
-      $html .= '<option value="'.$data["OT"].'">'.iconv("ISO-8859-1","UTF-8", $data["OT"]).'</option>';
-
-      $id_ot = '%'.$data["OT"].'%';
-      echo obtenerLOTE($conexion, $id_ot);
-    }*/
   
     echo $html;
   }

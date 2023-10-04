@@ -1,6 +1,6 @@
 <?php
    require_once ('db.php'); 
-   
+   error_reporting(1);
 
    class Funciones {
     private $conexion;
@@ -12,16 +12,36 @@
       public function __construct() {
         $this->conexion = Conexion::getInstance();
       }
-      
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////     
       public function obtenerData() {
+        try {
+          header('Content-Type: application/json');
+          $params = array(':p1' => 'dataNow', ':p2' => '', ':p3' => '');
+          $query = $this->conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
+          $query->execute($params);
+          $data = $query->fetchAll();
+          
+          return json_encode($data);
+
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+      }
+
+      public function obtenerData1() {
         try {
           //header('Content-Type: application/json');
           $params = array(':p1' => 'dataNow', ':p2' => '', ':p3' => '');
           $query = $this->conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
           $query->execute($params);
-    
           $data = $query->fetchAll();
-          return json_encode($data);
+          $html = '<option selected disabled value="">Selecciona un producto</option>';
+          
+          foreach ($data as $valores):
+            $html .= '<option value="'.$valores["Estatus"].'">'.iconv("ISO-8859-1","UTF-8", $valores["Estatus"]).'</option>';
+          endforeach;
+       
+          return $html;
 
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 error_reporting(1);
 
@@ -71,78 +71,41 @@ else
   </nav>
 </div> 
 
-<div>
- <h1>Registros</h1>
-  <form action="Filtro">
-   <input type="text" id="fechaInicio" placeholder="Fecha de Inicio">
-   <input type="text" id="fechaFin" placeholder="Fecha Final">
-   <select name="estatus" id="filtroEstatus">
-    <option selected disabled value="">Estatus</option>
-     <option value="setup">SETUP</option>
-     <option value="proceso">PROCESO</option>
-     <option value="paro">PARO</option>
-     <option value="fin">FIN</option>
-   </select>
-   <select class="form-control" name="producto" id="filtroProducto" required>   
-     <?php
-      include_once('../Model/Funciones.php');
-
-      $fun = new Funciones();
-      echo $fun->obtenerProducto();
-      ?>
-    </select>
-   <input type="text" id="filtroLote" placeholder="Filtrar por Lote">
-   <input type="text" id="filtroOT" placeholder="Filtrar por OT">
-   <select class="form-control" name="area" id="filtroArea" required>
-     <?php
-      include_once('../Model/Funciones.php');
-
-      $fun = new Funciones($con);
-      echo $fun->obtenerArea();
-     ?>
-    </select>
-    <select class="form-control" name="turno" id="turno" required>
-     <option selected disabled value="">TURNO</option>
-       <option value="MATUTINO">MATUTINO</option>
-       <option value="VESPERTINO">VESPERTINO</option>
-       <option value="NOCTURNO">NOCTURNO</option>
-    <select>
-   <button id="btnFiltrar" class="boton">Buscar</button>
-  </form>
-</div>
-
+<h1>Catalagos</h1>
 
 <div class="grid-container">
-  <table id="Hora" class="display">
+ <div class="grid-container">
+ <input type="text" id="" placeholder="Nuevo Motivo de paro">
+ <button id="Motivo1" class="boton">Guardar</button>
+  <table id="M1" class="display">
     <thead>
       <tr>
-        <th>Fecha</th>
-        <th>Estatus</th>
-        <th>Producto</th>
-        <th>Lote</th>
-        <th>OT</th>
-        <th>Area</th>
-        <th>Lider</th>
-        <th>Supervisor</th>
-        <th>Turno</th>
+        <th>Motivo</th>
       </tr>
     </thead>
       <tbody>
 
       </tbody>
   </table>
+ </div>
+
+ <div class="grid-container">
+ <input type="text" id="" placeholder="Nuevo SETUP">
+ <button id="Motivo2" class="boton">Guardar</button>
+  <table id="M2" class="display">
+    <thead>
+      <tr>
+        <th>Motivo</th>
+      </tr>
+    </thead>
+      <tbody>
+
+      </tbody>
+  </table>
+ </div>
 </div>
 
-<!-- <table id="Hora" class="display">
-    <thead>
 
-    </thead>
-    <tbody>
-
-    </tbody>
-</table> -->
-
-<!--<div id="myGrid" style="height: 500px;" class="ag-theme-alpine"></div>-->
 
 <footer class="contenedor derechos">   
   <a href="https://github.com/eloyradilla95" target="_black">
@@ -155,7 +118,7 @@ else
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="../js/grid.js"></script>
+<script src="../js/catalago.js"></script>
 
 <!--<script src="https://cdn.jsdelivr.net/npm/ag-grid-community@27.1.1/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/ag-grid-community@27.1.1/grid/polyfills.js"></script>

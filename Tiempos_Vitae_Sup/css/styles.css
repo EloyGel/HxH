@@ -256,3 +256,10 @@ h1,h2 {
     padding: 10px;
 }
 
+.grid-contenedor {
+    display: inline-block;
+    width: 50%; /* Ajusta el ancho según tus necesidades */
+    box-sizing: border-box; /* Incluye el espacio del borde y el relleno en el ancho */
+    padding: 10px; /* Agrega espacio interno si es necesario */
+  }
+
