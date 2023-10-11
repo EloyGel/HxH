@@ -10,9 +10,7 @@
     --secundario: rgb(241,241,241); /*Turmeric*/  
     /* --secundario: rgb(183,17,29); Turmeric*/
     --gris: rgb(97,91,91); /*Plum Kitten*/
-    --solar: #f4bf3b; /*Solar Power*/
-    --shocking: rgb(183,17,29); /*Shocking Orange*/
-    --flame: rgb(241,241,241); /*Flame orange*/
+    --grisi: #e9ecef;
     
     --fuentebold: 'myriad-pro',sans-serif;
     --fuentelight: 'Montserrat', sans-serif;
@@ -47,31 +45,40 @@ body{
     font-size: 16px;
     line-height: 1.5;
     font-family: var(--fuentelight); /* fuente principal del proyecto*/
-    /*background-image: linear-gradient(to top,var(--shocking) 0%, var(--secundario) 100%);*/
-    background-color: var(--secundario);
+    /*background-image: linear-gradient(to top,var(--shocking) 0%, var(--secundario) 100%);
+    background-color: var(--secundario);*/
     overflow-x: hidden;
-}
 
+}
 
 .contenedor{
     /*max-width toma el rango como maximo y solo si esta
       disponible, si no toma el 100% que se toma por defecto
      */
-    max-width:  120rem; 
+    max-width: auto; 
     margin: 2rem auto;
     overflow: hidden;
 }
+
+@media (min-width: 1024px){
+    .contenedor {
+        max-width: 75%;
+    }  
+}
+
 
 .sombra{
     -webkit-box-shadow: 0px 5px 15px 0px rgba(107,107,107,0.56);
     -moz-box-shadow: 0px 5px 15px 0px rgba(107,107,107,0.56);
     box-shadow: 0px 5px 15px 0px rgba(107,107,107,0.56);
-    background-color: var(--primario);
+    background-color: var(--grisi);
     padding: 1rem;
     margin: 2rem, 2rem;
     border-radius: 1rem;
     /*border-radius nos sirve para aplicar esquinas redondeadas */
 }
+
+/*--------------------------------------------------------------------------------Botones----------------------------------------------------------*/
 
 .boton /*Diseño de los botones*/{
     background-color: var(--primario);
@@ -109,12 +116,66 @@ body{
     margin: 10px;
 }
 
+.button-6 {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    margin-left: auto;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+  }
+  
+  .button-6:hover,
+  .button-6:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  
+  .button-6:hover {
+    transform: translateY(-1px);
+  }
+  
+  .button-6:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px){
+    .button-6 {
+        width: 100%;
+    }  
+}
+
+/*---------------------------------------------------------------------------Tipografia----------------------------------------------------------*/
 
 a,p{
     font-family: var(--fuentelight);
     text-decoration: none;
 }
-/*Tipografia*/
 
 h1{
     font-size: 3.8rem;
@@ -124,14 +185,52 @@ h2{
     font-size: 4rem;
 }
 
-
 h1,h2 {
     text-align: center;
     font-family: var(--fuentelight);
 }
 
+.f1 {                      /*Clase para el titulo*/
+    font-size: 3.8rem;
+    text-align: center;
+    font-family: var(--fuentelight);
+}
 
-/*header*/
+@media (max-width: 480px){
+    .f1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }  
+}
+
+@media (min-width: 480px){
+    .f1 {
+        font-size: auto;
+        text-align: center;
+    }  
+}
+
+/*Clase para los labels*/
+
+@media (max-width: 480px){
+    .f2 {
+        font-size: 1.5rem;
+        text-align: left;
+        margin-bottom: 5px;
+        font-family: var(--fuentelight);
+    }  
+}
+
+@media (min-width: 480px){
+    .f2 {
+        font-size: 1.8rem;
+        text-align: left;
+        margin-bottom: 5px;
+        font-family: var(--fuentelight);
+    }  
+}
+
+/*-----------------------------------------------------------------------------header---------------------------------------------------------------------*/
 
 .logo{
 
@@ -176,7 +275,7 @@ h1,h2 {
     max-width: 50%; /* Ajusta el ancho máximo para que no desborde su contenedor */
 }
 
-/*barra de navegacion*/
+/*-------------------------------------------------------barra de navegacion------------------------------------------------------------------*/
 
 .nav-bg{
 
@@ -195,7 +294,7 @@ h1,h2 {
     display: block;
     text-align: center;
     padding: 1rem;
-    color:var(--flame);
+    color:var(--secundario);
     text-decoration: none;
     font-size: 2rem;
     font-family: var(--fuentebold);
@@ -216,11 +315,7 @@ h1,h2 {
 }
 
 
-
-
-
-/*footer*/
-
+/*--------------------------------------------------------------footer------------------------------------------------------*/
 .derechos{
     display: grid;
     text-align: center;
@@ -245,21 +340,78 @@ h1,h2 {
     }
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    grid-gap: 10px; /* Espacio entre celdas */
+/*---------------------------------------------------------------------Div-----------------------------------------------*/
+
+.table {
+    width:200px;
+    height: 200px;
 }
 
-.grid-item {
-    border: 1px solid #ccc;
+.prueba {
+    background-color: var(--secundario);
+    border: 1px solid #c71212;
     padding: 10px;
 }
 
-.grid-contenedor {
-    display: inline-block;
-    width: 50%; /* Ajusta el ancho según tus necesidades */
-    box-sizing: border-box; /* Incluye el espacio del borde y el relleno en el ancho */
-    padding: 10px; /* Agrega espacio interno si es necesario */
-  }
+.div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
 
+.divbtn{
+    display: flex;
+    flex-direction: right;
+    margin-bottom: 20px;   
+}
+
+.divfecha{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dividir en dos columnas iguales */
+    grid-gap: 10px; /* Espacio entre columnas */
+}
+
+.divfecha2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dividir en dos columnas iguales */
+    grid-gap: 10px; /* Espacio entre columnas */
+}
+
+@media (max-width: 480px){
+    .divfecha{
+        display: flex;
+        flex-direction: column;
+    } 
+}
+
+.divfecha1{
+    margin-bottom: 20px;  
+}
+
+/*---------------------------------------------------------------Combobox----------------------------------------------*/
+
+.s1{
+    font-size: 2rem;
+    font-family: var(--fuentelight);  
+}
+
+@media (max-width: 480px){
+    .s1{
+        font-size: 1.2rem;
+        font-family: var(--fuentelight);  
+    } 
+}
+
+/*--------------------------------------------------------------Textbox--------------------------------------------------*/
+
+.t1{
+    font-size: 2rem;
+    font-family: var(--fuentelight);  
+}
+
+@media (max-width: 480px){
+    .t1{
+        font-size: 1.2rem;
+        font-family: var(--fuentelight);  
+    } 
+}

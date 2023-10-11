@@ -4,50 +4,41 @@
 
   $conexion = Conexion::getInstance();
 
-  if (isset($_POST['action']) && $_POST['action'] === 'obtenerData') {
-    obtenerGrid($conexion);
+  if (isset($_POST['action']) && $_POST['action'] === 'obtenerGrid') {
+    echo obtenerGrid($conexion);
   }
   else
   if (isset($_POST['action']) && $_POST['action'] === 'motivo1') {
-    obtenerGrid($conexion);
+    echo motivo1($conexion);
   }
   else
   if (isset($_POST['action']) && $_POST['action'] === 'motivo2') {
-    obtenerGrid($conexion);
+    echo motivo2($conexion);
   }
 
 
   function obtenerGrid($conexion){
-    /*$params = array(':p1' => 'dataNow', ':p2' => '', ':p3' => '');
+    $params = array(':p1' => 'dataNow', ':p2' => '', ':p3' => '');
     $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
     $query->execute($params);
-    $data = $query->fetchAll(PDO::FETCH_ASSOC);*/
+    $data = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    $data = array(
-      array(
-          "Fecha" => "2023-08-03 11:48:29.460",
-          "Estatus" => "setup",
-          "Producto" => "OMEPRAZOL PELLETS 8.5 %",
-          "Lote" => "zz",
-          "OT" => "1",
-          "Area" => "ss",
-          "Lider" => "aa",
-          "Supervisor" => "dd",
-          "Turno" => "Nocturno"
-      ),
-      array(
-          "Fecha" => "2023-08-04 12:30:00.000",
-          "Estatus" => "producción",
-          "Producto" => "IBUPROFENO 200 mg",
-          "Lote" => "yy",
-          "OT" => "2",
-          "Area" => "mm",
-          "Lider" => "bb",
-          "Supervisor" => "ee",
-          "Turno" => "Matutino"
-      ),
-      // Agrega más datos ficticios aquí
-    );
+    $resultados = array();
+
+    foreach ($data as $fila) {
+        $resultado = array(
+            "Estatus" => $fila["Estatus"],
+            "Producto" => iconv("ISO-8859-1", "UTF-8", $fila["Producto"]),
+            "Lote" => iconv("ISO-8859-1", "UTF-8", $fila["Lote"]),
+            "OT" => iconv("ISO-8859-1", "UTF-8", $fila["OT"]),
+            "Area" => iconv("ISO-8859-1", "UTF-8", $fila["AREA"]),
+            "Lider" => iconv("ISO-8859-1", "UTF-8", $fila["Lider"]),
+            "Supervisor" => iconv("ISO-8859-1", "UTF-8", $fila["Supervisor"]),
+            "Turno" => $fila["Turno"]
+        );
+
+        $resultados[] = $resultado;
+    }
   
     header('Content-Type: application/json'); 
     return json_encode($resultados);
@@ -58,9 +49,20 @@
     $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
     $query->execute($params);
     $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultados = array();
+
+    // Procesar los datos y guardarlos en el arreglo
+    foreach ($data as $fila) {
+        $resultado = array(
+            "Motivo" => iconv("ISO-8859-1", "UTF-8", $fila["Motivo"])
+        );
+
+        $resultados[] = $resultado;
+    }
   
     header('Content-Type: application/json'); 
-    return json_encode($data);
+    return json_encode($resultados);
   }
 
   function motivo2($conexion){
@@ -68,9 +70,20 @@
     $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
     $query->execute($params);
     $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultados = array();
+
+    // Procesar los datos y guardarlos en el arreglo
+    foreach ($data as $fila) {
+        $resultado = array(
+            "Motivo" => iconv("ISO-8859-1", "UTF-8", $fila["Motivo"])
+        );
+
+        $resultados[] = $resultado;
+    }
   
-    header('Content-Type: application/json'); 
-    return json_encode($data);
+    header('Content-Type: application/json');  
+    return json_encode($resultados);
   }
 
  ?>

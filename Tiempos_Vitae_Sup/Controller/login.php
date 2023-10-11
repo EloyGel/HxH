@@ -13,12 +13,12 @@
    foreach ($resultado as $fila) {
      if($fila['PERFIL'] === 'operador') {
         $_SESSION['vitae'] = 'operador';
-        header("location:/Tiempos_Vitae_Sup/View/HxH.php");
+        header("location:/Tiempos_Vitae_Sup/View/Operador/HxH.php");
      }
      else
      if($fila['PERFIL'] === 'supervisor') {
         $_SESSION['vitae'] = 'VITAE';
-        header("location:/Tiempos_Vitae_Sup/View/Supervisor.php");
+        header("location:/Tiempos_Vitae_Sup/View/Supervisor/Supervisor.php");
      }
      else
      if($fila['PERFIL'] === 'directivo') {
@@ -28,7 +28,7 @@
      else
      if($fila['PERFIL'] === 'admin') {
         $_SESSION['vitae'] = 'admin';
-        header("location:/Tiempos_Vitae_Sup/View/Admin.php");
+        header("location:/Tiempos_Vitae_Sup/View/Admin/Admin.php");
      }   
    }
  }
