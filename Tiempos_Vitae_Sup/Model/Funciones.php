@@ -190,10 +190,29 @@
         }
       }
 ////////////////////////////////////////////////////////////Función de Paro/////////////////////////////////////////////////////////////////
+      public function obtenerHora() {
+        $html = '<option selected disabled value="">Hora</option>';
 
+        for ($hour = 0; $hour <= 23; $hour++) {
+          $formattedHour = str_pad($hour, 2, '0', STR_PAD_LEFT); // Asegura que siempre tenga dos dígitos
+          $html .= "<option value=\"$formattedHour\">$formattedHour</option>";
+        }
 
+        return $html;
+      }
 
-////////////////////////////////////////////////////////////Funciones de combobox dinamico//////////////////////////////////////////////////
+      public function obtenerMin() {
+        $html = '<option selected disabled value="">Minuto</option>';
+
+        for ($hour = 0; $hour <= 59; $hour++) {
+          $formattedHour = str_pad($hour, 2, '0', STR_PAD_LEFT); // Asegura que siempre tenga dos dígitos
+          $html .= "<option value=\"$formattedHour\">$formattedHour</option>";
+        }
+
+        return $html;
+      }
+
+////////////////////////////////////////////////////////////Funciones hora y minutos//////////////////////////////////////////////////
    }
 
 

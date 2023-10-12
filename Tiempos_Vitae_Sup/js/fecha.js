@@ -17,3 +17,5 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('fechaini').value = fechaActual;
     document.getElementById('fechafin').value = fechaActual;
   });
+
+

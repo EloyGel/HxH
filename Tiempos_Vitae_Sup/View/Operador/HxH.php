@@ -50,7 +50,7 @@ else
 </div>
   <main role="main" class="">
     <div class="contenedor sombra" >
-     <p class="f1">Vitae Acondicionamiento</p>
+     <p class="f1">Vitae Acondicionamiento <span id="fechaActual"></span></p>
       <form class="" method="post" id="formulario" action="../Controller/Principal.php">
         <div class="div">
           <label class="f2" for="sucursal">SUCURSAL</label>
@@ -64,13 +64,47 @@ else
            <label class="f2" for="Fechaini">FECHA INICIO</label>
            <label class="f2" for="Fechafin">HORA INICIO</label>
            <input class="t1" type="date" id="fechaini" name="fechaini"/>
-           <input class="t1" type="time" id="fechafin" name="fechafin"/>
+           <div class="divfecha">
+            <select class="s1" id="horaini" name="horaini">
+             <?php
+              include_once('../../Model/Funciones.php');
+
+              $fun = new Funciones();
+              echo $fun->obtenerHora();
+             ?> 
+            </select>
+            <select class="s1" id="horaini" name="horaini">
+             <?php
+              include_once('../../Model/Funciones.php');
+
+              $fun = new Funciones();
+              echo $fun->obtenerMin();
+             ?> 
+            </select>
+           </div>
          </div>
          <div class="divfecha2">
            <label class="f2" for="Horaini">FECHA FIN</label>
            <label class="f2" for="Horafin">HORA FIN</label>
-           <input class="t1" type="date" id="fechaini" name="fechaini"/>
-           <input class="t1" type="time" id="fechafin" name="fechafin"/>
+           <input class="t1" type="date" id="fechafin" name="fechafin"/>
+           <div class="divfecha">
+           <select class="s1" id="horaini" name="horaini">
+            <?php
+              include_once('../../Model/Funciones.php');
+
+              $fun = new Funciones();
+              echo $fun->obtenerHora();
+            ?> 
+            </select>
+            <select class="s1" id="horaini" name="horaini">
+            <?php
+              include_once('../../Model/Funciones.php');
+
+              $fun = new Funciones();
+              echo $fun->obtenerMin();
+            ?> 
+           </select>
+           </div>
          </div>
         </div>
         <div class="div" id="OTsel" >
