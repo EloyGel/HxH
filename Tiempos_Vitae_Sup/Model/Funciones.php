@@ -76,7 +76,7 @@
           }
        }
 
-      /*public function obtenerArea() {
+      public function obtenerArea() {
         try {
           $params = array(':p1' => 'area', ':p2' => '', ':p3' => '');
           $query = $this->conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
@@ -85,7 +85,7 @@
           $html = '<option selected disabled value="">Selecciona una área</option>';
 
           foreach ($data as $valores):               
-            $html .= '<option value="'.$valores["id"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
+            $html .= '<option value="'.$valores["DESCRIPCION"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
           endforeach;
 
           return $html;
@@ -93,7 +93,7 @@
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
-      }*/
+      }
 
       public function obtenerLider() {
         try {
@@ -189,9 +189,10 @@
             echo "Error: " . $e->getMessage();
         }
       }
+
 ////////////////////////////////////////////////////////////Función de Paro/////////////////////////////////////////////////////////////////
       public function obtenerHora() {
-        $html = '<option selected disabled value="">Hora</option>';
+        //$html = '<option selected disabled value="">Hora</option>';
 
         for ($hour = 0; $hour <= 23; $hour++) {
           $formattedHour = str_pad($hour, 2, '0', STR_PAD_LEFT); // Asegura que siempre tenga dos dígitos
@@ -202,7 +203,7 @@
       }
 
       public function obtenerMin() {
-        $html = '<option selected disabled value="">Minuto</option>';
+        //$html = '<option selected disabled value="">Minuto</option>';
 
         for ($hour = 0; $hour <= 59; $hour++) {
           $formattedHour = str_pad($hour, 2, '0', STR_PAD_LEFT); // Asegura que siempre tenga dos dígitos

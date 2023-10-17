@@ -27,17 +27,18 @@ $(document).ready(function(){
     })
 });
 
-/*$(document).ready(function(){
-    $("#ot").change(function () {
-        $("#ot option:selected").each(function () { 
-            var id_ot = $(this).val();
-            $.post("../../Controller/Combobox.php", { prod: id_ot }, function(data){
-                $("#producto").html(data);
+$(document).ready(function(){
+    $("#maquina").change(function () {
+        $("#maquina option:selected").each(function () { 
+            var id_maquina = $(this).val();
+            $.post("../../Controller/Combobox.php", { rechazo: id_maquina }, function(data){
+                $("#rechazo").html(data);
             });            
         });
     })
 });
 
+/*
 $(document).ready(function(){ 
     $("#ot").change(function () {
         $("#ot option:selected").each(function () { 

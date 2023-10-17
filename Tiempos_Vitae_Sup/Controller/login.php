@@ -11,23 +11,26 @@
       
  if(count($resultado) >= 1){       
    foreach ($resultado as $fila) {
-     if($fila['PERFIL'] === 'operador') {
-        $_SESSION['vitae'] = 'operador';
+
+      $datos = array('USU' => $fila['ID'], 'PERFIL' => $fila['PERFIL']);
+
+     if($datos['PERFIL'] === 'operador') {
+        $_SESSION['vitae'] = $datos;
         header("location:/Tiempos_Vitae_Sup/View/Operador/HxH.php");
      }
      else
-     if($fila['PERFIL'] === 'supervisor') {
-        $_SESSION['vitae'] = 'VITAE';
+     if($datos['PERFIL'] === 'supervisor') {
+        $_SESSION['vitae'] = $datos;
         header("location:/Tiempos_Vitae_Sup/View/Supervisor/Supervisor.php");
      }
      else
-     if($fila['PERFIL'] === 'directivo') {
-        $_SESSION['vitae'] = 'VITAE';
+     if($datos['PERFIL'] === 'directivo') {
+        $_SESSION['vitae'] = $datos;
         header("location:/Tiempos_Vitae_Sup/View/Reporte.php");
      }
      else
-     if($fila['PERFIL'] === 'admin') {
-        $_SESSION['vitae'] = 'admin';
+     if($datos['PERFIL'] === 'admin') {
+        $_SESSION['vitae'] = $datos;
         header("location:/Tiempos_Vitae_Sup/View/Admin/Admin.php");
      }   
    }

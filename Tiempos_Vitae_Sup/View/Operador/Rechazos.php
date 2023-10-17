@@ -2,18 +2,16 @@
 session_start();
 error_reporting(1);
 
-$ses = $_SESSION['vitae'];
-
-if($ses != null || $ses !=''){
- if($ses == 'admin' || $ses =='supervisor' || $ses =='operador'){
-  //echo '<script language="javascript">alert("Bienvenido");</script>';
+if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
+  if($_SESSION['vitae']['PERFIL'] == 'admin' || $_SESSION['vitae']['PERFIL'] == 'supervisor' || $_SESSION['vitae']['PERFIL'] == 'operador'){
+   //echo '<script language="javascript">alert("Bienvenido");</script>';
+  }
+  else
+  { echo 'No cuentas con permisos'; die(); }
  }
  else
- { echo 'No cuentas con permisos'; die(); }
-}
-else
-{ echo 'No cuentas con autorización'; die(); }
-
+ { echo 'No cuentas con autorización'; die(); }
+ 
 ?>
 
 <!doctype html>
@@ -50,8 +48,8 @@ else
 </div>
   <main role="main" class="">
     <div class="contenedor sombra" >
-     <p class="f1">Vitae Rechazos <span id="fechaActual"></span></p>
-      <form class="" method="post" id="formulario" action="../../Controller/Rechazos.php">
+     <p class="f1">Rechazos - <span id="fechaActual"></span></p>
+      <form class="" method="post" id="formulario" action="../../Controller/Principal.php">
         <div class="div">
           <label class="f2" for="sucursal">SUCURSAL</label>
             <select class="s1" name="sucursal" id="sucursal" required>
@@ -73,7 +71,7 @@ else
               echo $fun->obtenerHora();
              ?> 
             </select>
-            <select class="s1" id="horaini" name="horaini">
+            <select class="s1" id="minini" name="minini">
              <?php
               include_once('../../Model/Funciones.php');
 
@@ -88,7 +86,7 @@ else
            <label class="f2" for="Horafin">HORA FIN</label>
            <input class="t1" type="date" id="fechafin" name="fechafin"/>
            <div class="divfecha">
-            <select class="s1" id="horaini" name="horaini">
+            <select class="s1" id="horafin" name="horafin">
              <?php
               include_once('../../Model/Funciones.php');
 
@@ -96,7 +94,7 @@ else
               echo $fun->obtenerHora();
              ?> 
             </select>
-            <select class="s1" id="horaini" name="horaini">
+            <select class="s1" id="minfin" name="minfin">
              <?php
               include_once('../../Model/Funciones.php');
 
@@ -108,20 +106,41 @@ else
          </div>
         </div>
         <div class="div" id="OTsel" >
-            <label class="f2" for="ot">OT</label>
-            <select class="s1" name="ot" id="ot" required>
+          <label class="f2" for="ot">OT</label>
+          <select class="s1" name="ot" id="ot" required>
             <?php
-              include_once('../../Model/Funciones.php');
+            include_once('../../Model/Funciones.php');
 
-              $fun = new Funciones();
-              echo $fun->obtenerOT();
-              ?>
-            </select>
+            $fun = new Funciones();
+            echo $fun->obtenerOT();
+            ?>
+          </select>
         </div> 
         <div class="div" id="lote">
            <label class="f2" for="lote">LOTE</label>
            <input required readonly type="text" class="t1" name="lote1" id="lote1" >
         </div> 
+        <div class="div" id="producto">
+           <label class="f2" for="producto">PRODUCTO</label>
+           <input required readonly type="text" class="t1" name="producto1" id="producto1" >
+        </div>
+        <div class="div" id="maquina">
+          <label class="f2" for="maquina">MAQUINA</label>
+          <select class="s1" name="maquina" id="maquina" required>
+            <?php
+            include_once('../../Model/Funciones.php');
+
+            $fun = new Funciones();
+            echo $fun->obtenerArea();
+            ?>
+          </select>
+        </div> 
+        <!--<div class="div" id="maquina">
+           <label class="f2" for="maquina">MAQUINA</label>
+           <select class="s1" name="maquina1" id="maquina1" required>
+            <option selected disabled value="">Selecciona una opción</option>
+           </select>
+        </div>-->
         <div class="div">
             <label class="f2" for="turno">TURNO</label>
             <select class="s1" name="turno" id="turno" required>
@@ -132,46 +151,39 @@ else
             <select>
         </div>
         <div class="div">
-            <label class="f2" for="lider">LÍDER DE LÍNEA</label>
-            <select class="s1" name="lider" id="lider" required>
-              <?php
-              include_once('../../Model/Funciones.php');
+          <label class="f2" for="lider">LÍDER DE LÍNEA</label>
+          <select class="s1" name="lider" id="lider" required>
+            <?php
+            include_once('../../Model/Funciones.php');
 
-              $fun = new Funciones();
-              echo $fun->obtenerLider();
-              ?>
-            </select>
+            $fun = new Funciones();
+            echo $fun->obtenerLider();
+            ?>
+          </select>
         </div> 
         <div class="div">
-            <label class="f2" for="supervisor">SUPERVISOR</label>
-            <select class="s1" name="supervisor" id="supervisor" required>
-              <?php
-              include_once('../../Model/Funciones.php');
+          <label class="f2" for="supervisor">SUPERVISOR</label>
+          <select class="s1" name="supervisor" id="supervisor" required>
+            <?php
+            include_once('../../Model/Funciones.php');
 
-              $fun = new Funciones();
-              echo $fun->obtenerSupervisor();
-              ?>
-            </select>
+            $fun = new Funciones();
+            echo $fun->obtenerSupervisor();
+            ?>
+          </select>
         </div>  
         <div class="div" id="piezas">
           <label class="f2" for="VelocidadMaquina">CANTIDAD DE PIEZAS</label>
           <input type="number" min="0" name="piezas" class="t1" id="VelocidadMaquina" placeholder="Escribe tu respuesta">
         </div> 
-        <div class="div">
-            <label class="f2" for="rechazo">MOTIVO DE RECHAZO</label>
-            <select class="s1" name="rechazo" id="rechazo" required>
-              <option selected disabled value="">Selecciona una opción</option>
-              <option value="setup">FALLO DE PRUEBA DE HERMETICIDAD</option>
-              <option value="proceso">LOTE EQUIVOCADO</option>
-              <option value="paro">CADUCIDAD EQUIVOCADA</option>
-              <option value="fin">CAJA INDIVIDUAL DAÑADA</option>
-              <option value="fin">CAJA COLECTIVA DAÑADA</option>
-              <option value="fin">LOTE DESFASADO</option>
-            </select>
+        <div class="div" id="rechazos">
+          <label class="f2" for="rechazo">MOTIVO DE RECHAZO</label>
+          <select class="s1" name="rechazo" id="rechazo" required>
+          </select>
         </div>
           <!------------------------------------------------------------------------ Botón de guardar ----------------------------------------------------------->
         <div class="divbtn" id="guardar">
-          <input type="submit" class="button-6" name="guardar" value="Guardar">
+          <input type="submit" class="button-6" name="Guardar_rechazo" value="Rechazo">
         </div>
 
           <!-- Informacion de fin de turno -->

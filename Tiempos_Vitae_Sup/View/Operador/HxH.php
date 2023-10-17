@@ -2,10 +2,8 @@
 session_start();
 error_reporting(1);
 
-$ses = $_SESSION['vitae'];
-
-if($ses != null || $ses !=''){
- if($ses == 'admin' || $ses =='supervisor' || $ses =='operador'){
+if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
+ if($_SESSION['vitae']['PERFIL'] == 'admin' || $_SESSION['vitae']['PERFIL'] == 'supervisor' || $_SESSION['vitae']['PERFIL'] == 'operador'){
   //echo '<script language="javascript">alert("Bienvenido");</script>';
  }
  else
@@ -49,9 +47,9 @@ else
   </nav>
 </div>
   <main role="main" class="">
-    <div class="contenedor sombra" >
+    <div class="contenedor sombra">
      <p class="f1">Vitae Acondicionamiento <span id="fechaActual"></span></p>
-      <form class="" method="post" id="formulario" action="../Controller/Principal.php">
+      <form class="" method="post" id="formulario" action="../../Controller/Principal.php">
         <div class="div">
           <label class="f2" for="sucursal">SUCURSAL</label>
             <select class="s1" name="sucursal" id="sucursal" required>
@@ -73,7 +71,7 @@ else
               echo $fun->obtenerHora();
              ?> 
             </select>
-            <select class="s1" id="horaini" name="horaini">
+            <select class="s1" id="minini" name="minini">
              <?php
               include_once('../../Model/Funciones.php');
 
@@ -88,7 +86,7 @@ else
            <label class="f2" for="Horafin">HORA FIN</label>
            <input class="t1" type="date" id="fechafin" name="fechafin"/>
            <div class="divfecha">
-           <select class="s1" id="horaini" name="horaini">
+           <select class="s1" id="horafin" name="horafin">
             <?php
               include_once('../../Model/Funciones.php');
 
@@ -96,7 +94,7 @@ else
               echo $fun->obtenerHora();
             ?> 
             </select>
-            <select class="s1" id="horaini" name="horaini">
+            <select class="s1" id="minfin" name="minfin">
             <?php
               include_once('../../Model/Funciones.php');
 
@@ -127,11 +125,22 @@ else
            <input required readonly type="text" class="t1" name="producto1" id="producto1" >
         </div>
         <div class="div" id="maquina">
+          <label class="f2" for="maquina">MAQUINA</label>
+          <select class="s1" name="maquina" id="maquina" required>
+            <?php
+            include_once('../../Model/Funciones.php');
+
+            $fun = new Funciones();
+            echo $fun->obtenerArea();
+            ?>
+          </select>
+        </div> 
+       <!-- <div class="div" id="maquina">
            <label class="f2" for="maquina">MAQUINA</label>
-           <select class="s1" name="maquina1" id="maquina1" required>
+           <select class="s1" name="maquina1" id="maquina1" required> 
             <option selected disabled value="">Selecciona una opción</option>
            </select>
-        </div>
+        </div> -->
         <div class="div">
             <label class="f2" for="turno">TURNO</label>
             <select class="s1" name="turno" id="turno" required>
@@ -167,53 +176,16 @@ else
             <label class="f2" for="estatus">ESTATUS</label>
             <select class="s1" name="estatus" id="estatus" required>
               <option selected disabled value="">Selecciona una opción</option>
-              <option value="setup">SETUP</option>
               <option value="proceso">PROCESO</option>
               <option value="paro">PARO</option>
-              <option value="fin">FIN DE TURNO</option>
             </select>
         </div>
-          <!-------------------------------------------------------------------------- Informacion del setup --------------------------------------------------->
-          <div class="div" id="setup">
-            <label class="f2" for="MotSetup">MOTIVO DE SETUP</label>
-            <select class="s1" name="motivo1" id="MotSetup">
-              <?php
-              include_once('../../Model/Funciones.php');
-
-              $fun = new Funciones();
-              echo $fun->obtenerSETUP();
-              ?>
-            </select>
-            <p></p>
-            <div class="div" id="inspector" >
-              <label class="f2" for="SetInspector">INSPECTOR</label>
-              <input type="text" class="t1" name="inspector" placeholder="Escribe tu respuesta">
-            </div>
-            <div class="div" id="observaciones1">
-              <label class="f2" for="SetObservaciones">OBSERVACIONES</label>
-              <textarea class="t1" name="observaciones1" id="SetObservaciones" placeholder="Escribe tu respuesta" rows="3"></textarea>
-            </div> 
-          </div>
           <!------------------------------------------------------------------------- Informacion del proceso ------------------------------------------------>
-          <div class="div" id="proceso">
-            <label class="f2" for="TipoProceso">PROCESO</label>
-            <select class="s1" name="motivo2" id="TipoProceso">
-              <?php
-              include_once('../../Model/Funciones.php');
-
-              $fun = new Funciones();
-              echo $fun->obtenerProceso();
-              ?>
-            </select>
-            <p></p>
-            <div class="div" id="piezas">
-              <label class="f2" for="VelocidadMaquina">CANTIDAD DE PIEZAS</label>
-              <input type="number" min="0" name="piezas" class="t1" id="VelocidadMaquina" placeholder="Escribe tu respuesta">
-            </div> 
-            <div class="div" id="observaciones2">
-              <label class="f2" for="Procbservaciones">OBSERVACIONES</label>
-              <textarea class="t1" name="observaciones2" id="Procbservaciones" placeholder="Escribe tu respuesta" rows="3"></textarea>
-            </div> 
+          <div  id="proceso">
+           <div class="div">
+            <label class="f2" for="VelocidadMaquina">CANTIDAD DE PIEZAS</label>
+            <input type="number" min="0" name="piezas" class="t1" id="VelocidadMaquina" placeholder="Escribe tu respuesta">
+           </div>          
           </div>
           <!------------------------------------------------------------------------ Informacion del paro ------------------------------------------------------>
           <div class="div" id="paro">
@@ -236,11 +208,6 @@ else
               <textarea class="t1" name="observaciones3" id="Parobservaciones" placeholder="Escribe tu respuesta" rows="3"></textarea>
             </div>  
           </div>
-          <!---------------------------------------------------------------------- Informacion de fin de turno ------------------------------------------------->
-          <div class="div" id="FinTurno">
-            <label class="f2" for="Turnobservaciones">OBSERVACIONES</label>
-            <textarea class="t1" name="observaciones4" id="Turnobservaciones" placeholder="Escribe tu respuesta" rows="3"></textarea>
-          </div> 
           <!------------------------------------------------------------------------ Botón de guardar ----------------------------------------------------------->
           <div class="divbtn" id="guardar">
            <input type="submit" class="button-6" name="guardar" value="Guardar">

@@ -2,10 +2,8 @@
 session_start();
 error_reporting(1);
 
-$ses = $_SESSION['vitae'];
-
-if($ses != null || $ses !=''){
- if($ses == 'admin' || $ses =='supervisor'){
+if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
+ if($_SESSION['vitae']['PERFIL'] == 'admin' || $_SESSION['vitae']['PERFIL'] =='supervisor'){
   //echo '<script language="javascript">alert("Bienvenido");</script>';
  }
  else
