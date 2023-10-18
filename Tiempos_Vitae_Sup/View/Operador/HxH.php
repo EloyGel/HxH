@@ -106,15 +106,15 @@ else
          </div>
         </div>
         <div class="div" id="OTsel" >
-            <label class="f2" for="ot">OT</label>
-            <select class="s1" name="ot" id="ot" required>
+          <label class="f2" for="ot">OT</label>
+          <select class="s1" name="ot" id="ot" required>
             <?php
               include_once('../../Model/Funciones.php');
 
               $fun = new Funciones();
               echo $fun->obtenerOT();
-              ?>
-            </select>
+            ?>
+          </select>
         </div> 
         <div class="div" id="lote">
            <label class="f2" for="lote">LOTE</label>

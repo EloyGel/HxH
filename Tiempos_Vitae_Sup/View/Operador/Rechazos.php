@@ -122,7 +122,7 @@ if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
         </div> 
         <div class="div" id="producto">
            <label class="f2" for="producto">PRODUCTO</label>
-           <input required readonly type="text" class="t1" name="producto1" id="producto1" >
+           <input required readonly type="text" class="t1" id="producto" >
         </div>
         <div class="div" id="maquina">
           <label class="f2" for="maquina">MAQUINA</label>

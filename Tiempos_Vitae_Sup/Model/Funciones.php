@@ -12,6 +12,7 @@
       public function __construct() {
         $this->conexion = Conexion::getInstance();
       }
+
       public function login($pam1,$pam2) {
         try {
           $params = array(':p1' => 'login',':p2' => $pam1, ':p3' => $pam2);
@@ -104,7 +105,7 @@
           $html = '<option selected disabled value="">Selecciona un Lider</option>';    
 
           foreach ($data as $valores):
-            $html .= '<option value="'.$valores["rowid"].'">'.iconv("ISO-8859-1","UTF-8", $valores["NOMBRE"]).'</option>';
+            $html .= '<option value="'.$valores["ROWID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["NOMBRE"]).'</option>';
           endforeach;
 
           return $html;
@@ -123,7 +124,7 @@
           $html = '<option selected disabled value="">Selecciona un Supervisor</option>';  
 
           foreach ($data as $valores):
-            $html .= '<option value="'.$valores["rowid"].'">'.iconv("ISO-8859-1","UTF-8", $valores["NOMBRE"]).'</option>';
+            $html .= '<option value="'.$valores["ROWID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["NOMBRE"]).'</option>';
           endforeach;
     
           return $html;

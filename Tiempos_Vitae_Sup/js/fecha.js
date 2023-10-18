@@ -15,7 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const fechaActual = new Date().toISOString().split('T')[0];
     // Establecer la fecha actual como valor predeterminado para los campos
     document.getElementById('fechaini').value = fechaActual;
+    //document.getElementById('fechaini').min = fechaActual;
+    document.getElementById('fechaini').max = fechaActual;
+
     document.getElementById('fechafin').value = fechaActual;
+    document.getElementById('fechafin').min = document.getElementById('fechaini').value;
   });
 
 
+ 
