@@ -181,32 +181,40 @@ else
             </select>
         </div>
           <!------------------------------------------------------------------------- Informacion del proceso ------------------------------------------------>
-          <div  id="proceso">
+          <div id="proceso">
            <div class="div">
             <label class="f2" for="VelocidadMaquina">CANTIDAD DE PIEZAS</label>
             <input type="number" min="0" name="piezas" class="t1" id="VelocidadMaquina" placeholder="Escribe tu respuesta">
            </div>          
           </div>
           <!------------------------------------------------------------------------ Informacion del paro ------------------------------------------------------>
-          <div class="div" id="paro">
-            <label class="f2" for="MotParo">MOTIVO DEL PARO</label>
-            <select class="s1" name="motivo3" id="MotParo">
-              <?php
-              include_once('../../Model/Funciones.php');
-
-              $fun = new Funciones();
-              echo $fun->obtenerParo();
-              ?>
-            </select>
-            <p></p>
+          <div id="paro">
+           <div class="div">
+             <label class="f2" for="MotParo">MOTIVO DEL PARO</label>
+             <select class="s1" name="motivo" id="motivo">
+             </select> 
+           </div>
+           <div id="paro1">
             <div class="div">
-              <label class="f2" for="DesParo">DESCRIPCIÓN DEL PARO</label>
-              <textarea class="t1" name="descripcion3" id="DesParo" placeholder="Escribe tu respuesta" rows="3"></textarea>
+             <label class="f2" for="MotParo1">NIVEL 2</label>
+             <select class="s1" name="motivo1" id="motivo1">
+             </select> 
             </div>
+           </div>
+           <div id="paro2">
             <div class="div">
-              <label class="f2" for="Parobservaciones">OBSERVACIONES</label>
-              <textarea class="t1" name="observaciones3" id="Parobservaciones" placeholder="Escribe tu respuesta" rows="3"></textarea>
-            </div>  
+             <label class="f2" for="MotParo2">NIVEL 3</label>
+             <select class="s1" name="motivo2" id="motivo2">
+             </select> 
+            </div>
+           </div>
+           <div id="paro3">
+            <div class="div">
+             <label class="f2" for="MotParo3">NIVEL 4</label>
+             <select class="s1" name="motivo3" id="motivo3">
+             </select> 
+            </div>
+           </div>
           </div>
           <!------------------------------------------------------------------------ Botón de guardar ----------------------------------------------------------->
           <div class="divbtn" id="guardar">

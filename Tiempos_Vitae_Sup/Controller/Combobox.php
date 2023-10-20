@@ -37,27 +37,39 @@
     echo obtenerMaquina($conexion, $p1, $p2);
   }
   else
+  if(isset($_POST['motivo'])){
+    $m1 = $_POST['motivo'];
+
+    echo obtenerMotivo($conexion, $m1);
+  }
+  else
+  if(isset($_POST['motivo1'])){
+    $m1 = $_POST['motivo1'];
+
+    echo obtenerMotivo1($conexion, $m1);
+  }
+  else
+  if(isset($_POST['motivo2'])){
+    $m1 = $_POST['motivo2'];
+
+    echo obtenerMotivo2($conexion, $m1);
+  }
+  else
+  if(isset($_POST['motivo3'])){
+    $m1 = $_POST['motivo3'];
+
+    echo obtenerMotivo3($conexion, $m1);
+  }
+  else
   if(isset($_POST['rechazo'])){
     $p1 = $_POST['rechazo'];
 
     echo obtenerRechazo($conexion, $p1);
   }
 
-  function dividirOT($valor) {
-    // Dividir la cadena en dos variables
-    $partes = explode("-", $valor);
 
-    if (count($partes) == 2) {
-        $primerNumero = $partes[0];
-        $segundoNumero = $partes[1];
 
-        return array("v1" => $primerNumero, "v2" => $segundoNumero);
-    } else {
-        // Manejar un valor incorrecto
-        return false;
-    }
-  }
-
+/***********************************************************FUNCIONES DE CONSULTAS**********************************************************************/
 
   /*function obtenerOT($conexion, $id_part){
     $params = array(':p1' => 'OT', ':p2' => $id_part, ':p3' => '');
@@ -116,6 +128,8 @@
     echo $html;
   }
 
+/***********************************************************MOTIVO DE RECHAZO*******************************************************************************/
+
   function obtenerRechazo($conexion, $id_maquina){
     $params = array(':p1' => 'rechazo', ':p2' => $id_maquina, ':p3' => '');
     $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
@@ -130,6 +144,80 @@
     echo $html;
   }
 
+/***********************************************************MOTIVO DE PARO*******************************************************************************/
+
+  function obtenerMotivo($conexion, $id_motivo){                                          //Nivel 1
+    $params = array(':p1' => 'motivo', ':p2' => $id_motivo, ':p3' => '');
+    $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
+    $query->execute($params);
+    $data = $query->fetchAll();
+    $html = '<option selected disabled value="">Selecciona un motivo</option>';
+
+    foreach ($data as $valores):
+      $html .= '<option value="'.$valores["ROWID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
+    endforeach;
+  
+    echo $html;
+  }
+
+  function obtenerMotivo1($conexion, $id_motivo1){                                        //Nivel 2
+    $params = array(':p1' => 'motivo1', ':p2' => $id_motivo1, ':p3' => '');
+    $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
+    $query->execute($params);
+    $data = $query->fetchAll();
+    $html = '<option selected disabled value="">Selecciona un motivo</option>';
+
+    foreach ($data as $valores):
+      $html .= '<option value="'.$valores["ROWID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
+    endforeach;
+  
+    echo $html;
+  }
+
+  function obtenerMotivo2($conexion, $id_motivo2){                                        //Nivel 3
+    $params = array(':p1' => 'motivo2', ':p2' => $id_motivo2, ':p3' => '');
+    $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
+    $query->execute($params);
+    $data = $query->fetchAll();
+    $html = '<option selected disabled value="">Selecciona un motivo</option>';
+
+    foreach ($data as $valores):
+      $html .= '<option value="'.$valores["ROWID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
+    endforeach;
+  
+    echo $html;
+  }
+
+  function obtenerMotivo3($conexion, $id_motivo3){                                        //Nivel 4
+    $params = array(':p1' => 'motivo3', ':p2' => $id_motivo3, ':p3' => '');
+    $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
+    $query->execute($params);
+    $data = $query->fetchAll();
+    $html = '<option selected disabled value="">Selecciona un motivo</option>';
+
+    foreach ($data as $valores):
+      $html .= '<option value="'.$valores["ROWID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
+    endforeach;
+  
+    echo $html;
+  }
+
+/***********************************************************Funciones de datos*******************************************************************************/
+
+  function dividirOT($valor) {
+    // Dividir la cadena en dos variables
+    $partes = explode("-", $valor);
+
+    if (count($partes) == 2) {
+        $primerNumero = $partes[0];
+        $segundoNumero = $partes[1];
+
+        return array("v1" => $primerNumero, "v2" => $segundoNumero);
+    } else {
+        // Manejar un valor incorrecto
+        return false;
+    }
+  }
 
 
  ?>
