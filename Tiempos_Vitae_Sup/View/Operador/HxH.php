@@ -43,6 +43,7 @@ else
 <div class="nav-bg"> 
   <nav class="navegacion-principal contenedor">
       <a href="HxH.php">Registro</a>
+      <a href="Bitacora.php">Bitacora</a>
       <a href="Rechazos.php">Rechazos</a>
   </nav>
 </div>

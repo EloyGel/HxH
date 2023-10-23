@@ -43,6 +43,7 @@ if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
 <div class="nav-bg"> 
   <nav class="navegacion-principal contenedor">
       <a href="HxH.php">Registro</a>
+      <a href="Bitacora.php">Bitacora</a>
       <a href="Rechazos.php">Rechazos</a>
   </nav>
 </div>
@@ -124,8 +125,8 @@ if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
            <label class="f2" for="producto">PRODUCTO</label>
            <input required readonly type="text" class="t1" id="producto" >
         </div>
-        <div class="div" id="maquina">
-          <label class="f2" for="maquina">MAQUINA</label>
+        <div class="div" id="maquinaR">
+          <label class="f2" for="maquinaR">MAQUINA</label>
           <select class="s1" name="maquina" id="maquina" required>
             <?php
             include_once('../../Model/Funciones.php');

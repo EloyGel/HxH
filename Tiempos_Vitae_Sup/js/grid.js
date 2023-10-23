@@ -1,6 +1,6 @@
 // Función para inicializar el DataTable
 function inicializarDataTable() {
-    var table = $('#Hora').DataTable({
+    var table = $('#Hora').DataTable({ 
         'processing': true,
         'serverMethod': 'post',
         "ajax": {

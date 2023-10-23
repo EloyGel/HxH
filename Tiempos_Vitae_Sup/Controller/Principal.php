@@ -10,7 +10,7 @@
  $horaini = $_POST['horaini'].':'.$_POST['minini'].':00';
  $horafin = $_POST['horafin'].':'.$_POST['minfin'].':00';
 
- $ott = dividirProd($_POST['ot']); 
+ $ott = dividirOT($_POST['ot']); 
  if($ott !== false){$ot = $ott["v1"];}
  else{$ot = 'Error';}
 
@@ -48,7 +48,19 @@
    else
    if($estatus == 'paro')
     {
-     $paro = intval($_POST['motivo']);
+     if($_POST['motivo3'] !== null){
+      $paro = 'm4-'.$_POST['motivo3'];
+     }else
+     if($_POST['motivo2'] !== null){
+      $paro = 'm3-'.$_POST['motivo2'];
+     }else
+     if($_POST['motivo1'] !== null){
+      $paro = 'm2-'.$_POST['motivo1'];
+     }else
+     if($_POST['motivo'] !== null){
+      $paro = 'm1-'.$_POST['motivo'];
+     }
+
      try 
       {
         $params = array(':p1' => 'PARO',':p2' => $sucursal, ':p3' => $fechaini,':p4' => $fechafin,':p5' => $horaini,':p6' => $horafin,':p7' => $ot,
@@ -82,6 +94,19 @@
   echo "<script> window.location.replace('/Tiempos_VITAE_SUP/View/Operador/HxH.php'); </script>";
 
 
+  function dividirOT($valor) 
+  {
+   $partes = explode("-", $valor);
+
+   if(count($partes) == 2) // Dividir la cadena en tres variables
+    {              
+     $primerNumero = $partes[0];
+     $segundoNumero = $partes[1];
+
+     return array("v1" => $primerNumero, "v2" => $segundoNumero);
+    } 
+   else{return false;} // Manejar un valor incorrecto
+  }
 
   function dividirProd($valor) 
   {
