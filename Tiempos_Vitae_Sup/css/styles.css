@@ -415,3 +415,17 @@ h1,h2 {
         font-family: var(--fuentelight);  
     } 
 }
+
+/*--------------------------------------------------------------Textbox--------------------------------------------------*/
+
+.grid-text{
+    font-size: 1.5rem;
+    font-family: var(--fuentelight);  
+}
+
+@media (max-width: 480px){
+    .grid-text{
+        font-size: 0.8rem;
+        font-family: var(--fuentelight);  
+    } 
+}

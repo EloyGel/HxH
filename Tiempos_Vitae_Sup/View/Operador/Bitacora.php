@@ -63,18 +63,29 @@ if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
  <h1>Registros del día <span id="fechaActual"></span></h1>
 </div>
 
-<div class="grid-container">
-  <table id="Hora" class="display table grid-item" >
+<div class="contenedor grid-container">
+  <table id="Hora" class="grid-text display table grid-item" >
     <thead>
       <tr>
-        <th>Estatus</th>
-        <th>Producto</th>
-        <th>Lote</th>
+        <th>Fecha Inicio</th>
+        <th>Fecha Fin</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fin</th>
         <th>OT</th>
-        <th>Area</th>
+        <th>Lote</th>
+        <th>Producto</th>
+        <th>Maquina</th>
+        <th>Estatus</th>
+        <th>Turno</th>
+        <th>Estatus</th>
+        <th>Nivel 1</th>
+        <th>Nivel 2</th>
+        <th>Nivel 3</th>
+        <th>Nivel 4</th>
+        <th>Piezas</th>
         <th>Lider</th>
         <th>Supervisor</th>
-        <th>Turno</th>
+        <th>Sucursal</th>
       </tr>
     </thead>
       <tbody>

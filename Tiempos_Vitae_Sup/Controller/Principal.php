@@ -79,6 +79,7 @@
   {   
    $piezas = intval($_POST['piezas']);
    $rechazo = intval($_POST['rechazo']);
+
    try 
     {
      $params = array(':p1' => 'RECHAZO',':p2' => $sucursal, ':p3' => $fechaini,':p4' => $fechafin,':p5' => $horaini,':p6' => $horafin,':p7' => $ot,

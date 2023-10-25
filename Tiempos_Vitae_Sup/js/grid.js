@@ -3,6 +3,7 @@ function inicializarDataTable() {
     var table = $('#Hora').DataTable({ 
         'processing': true,
         'serverMethod': 'post',
+        //"scrollX": true, 
         "ajax": {
             "url": "../../Controller/Grid.php",
             "type": "POST",
@@ -13,14 +14,24 @@ function inicializarDataTable() {
             "dataSrc": ""
         },
         "columns": [
-            { "data": "Estatus" }, 
-            { "data": "Producto" },
-            { "data": "Lote" },
+            { "data": "Fecha_Inicio" }, 
+            { "data": "Fecha_Fin" },
+            { "data": "Hora_Inicio" },
+            { "data": "Hora_Fin" },
             { "data": "OT" },
-            { "data": "Area" },
+            { "data": "Lote" },
+            { "data": "Producto" },
+            { "data": "Maquina" },
+            { "data": "Turno" }, 
+            { "data": "Estatus" },
+            { "data": "Nivel_1" },
+            { "data": "Nivel_2" },
+            { "data": "Nivel_3" },
+            { "data": "Nivel_4" },
+            { "data": "Piezas" },
             { "data": "Lider" },
             { "data": "Supervisor" },
-            { "data": "Turno" }
+            { "data": "Sucursal" }
         ],
         "language": {
             "decimal":        "",
@@ -50,8 +61,16 @@ function inicializarDataTable() {
     return table;
 }
 
+$(document).ready(function() {
+    // Inicializar el DataTable y obtener la instancia
+    //var dataTable = inicializarDataTable();
 
-function aplicarFiltros(table) {
+    inicializarDataTable();
+    // Aplicar los filtros en el DataTable
+    //aplicarFiltros(dataTable);
+});
+
+/*function aplicarFiltros(table) {
     $('#btnFiltrar').on('click', function() {
         var filtroEstatus = $('#filtroEstatus').val();
         var filtroProducto = $('#filtroProducto').val();
@@ -72,12 +91,5 @@ function aplicarFiltros(table) {
         table.columns(6).search(filtroSupervisor).draw();
         table.columns(7).search(filtroTurno).draw();
     });
-}
+}*/
 
-$(document).ready(function() {
-    // Inicializar el DataTable y obtener la instancia
-    var dataTable = inicializarDataTable();
-
-    // Aplicar los filtros en el DataTable
-    aplicarFiltros(dataTable);
-});
