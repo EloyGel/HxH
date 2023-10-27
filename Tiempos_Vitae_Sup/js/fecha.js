@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
     horaIniSelect.addEventListener('change', validarHoras);
     minIniSelect.addEventListener('change', validarHoras);
     horaFinSelect.addEventListener('change', validarHoras);
-    minFinSelect.addEventListener('change', validarHoras);
+    minFinSelect.addEventListener('change', validarHoras); 
 
     function validarHoras() {
         // Obtener los valores seleccionados

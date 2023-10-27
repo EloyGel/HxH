@@ -4,6 +4,10 @@
 
  $conexion = Conexion::getInstance();
 
+   /*echo '<script>';
+  echo 'console.log(' . json_encode($_POST) . ');';     //Revisar la información que trae el post
+  echo '</script>';*/
+
  $sucursal = intval($_POST['sucursal']); 
  $fechaini = $_POST['fechaini'];
  $fechafin = $_POST['fechafin'];
@@ -48,16 +52,16 @@
    else
    if($estatus == 'paro')
     {
-     if($_POST['motivo3'] !== null){
+     if(isset($_POST['motivo3'])){
       $paro = 'm4-'.$_POST['motivo3'];
      }else
-     if($_POST['motivo2'] !== null){
+     if(isset($_POST['motivo2'])){
       $paro = 'm3-'.$_POST['motivo2'];
      }else
-     if($_POST['motivo1'] !== null){
+     if(isset($_POST['motivo1'])){
       $paro = 'm2-'.$_POST['motivo1'];
      }else
-     if($_POST['motivo'] !== null){
+     if(isset($_POST['motivo'])){
       $paro = 'm1-'.$_POST['motivo'];
      }
 

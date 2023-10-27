@@ -66,7 +66,7 @@ else
         });
 
         document.getElementById("boton2").addEventListener("click", function() {
-            window.location.href = "../../View/Supervisor/Supervisor.php";
+            window.location.href = "../../View/Supervisor/HxH.php";
         });
 
         document.getElementById("boton3").addEventListener("click", function() {
