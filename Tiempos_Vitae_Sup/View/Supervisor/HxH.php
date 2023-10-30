@@ -2,19 +2,12 @@
 session_start();
 error_reporting(1);
 
-if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
- if($_SESSION['vitae']['PERFIL'] == 'admin' || $_SESSION['vitae']['PERFIL'] == 'supervisor'){
-  //echo '<script language="javascript">alert("Bienvenido");</script>';
- }
- else
- { //echo 'No cuentas con permisos'; die(); 
-  header("location:/Tiempos_Vitae_Sup/View/error.html");
- }
-}
-else
-{ //echo 'No cuentas con autorización'; die(); 
-  header("location:/Tiempos_Vitae_Sup/View/error.html");
-}
+
+
+include_once('../../Model/Funciones.php');
+
+$fun = new Funciones();
+echo $fun->acceso($_SESSION['vitae'],'supervisor');
 
 ?>
  

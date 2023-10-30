@@ -2,7 +2,7 @@
 session_start();
 error_reporting(1);
 
-if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
+/*if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
  if($_SESSION['vitae']['PERFIL'] == 'admin'){
   //echo '<script language="javascript">alert("Bienvenido");</script>';
  }
@@ -11,6 +11,12 @@ if($_SESSION['vitae']['PERFIL'] != null || $_SESSION['vitae']['PERFIL'] !=''){
 }
 else
 { echo 'No cuentas con autorización'; die(); }
+*/
+
+include_once('../../Model/Funciones.php');
+
+$fun = new Funciones();
+echo $fun->acceso($_SESSION['vitae'],'admin');
 
 ?>
 <!DOCTYPE html>
