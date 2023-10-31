@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const horaFinSelect = document.getElementById('horafin');
     const minFinSelect = document.getElementById('minfin');
 
-    // Obtener los elementos de fecha
+    // Obtener los elementos de fecha del operador
     const fechaIniInput = document.getElementById('fechaini');
     const fechaFinInput = document.getElementById('fechafin');
 
@@ -80,10 +80,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Obtener la fecha actual en formato ISO (AAAA-MM-DD)
     const fechaActual = new Date().toISOString().split('T')[0];
-    // Establecer la fecha actual como valor predeterminado para los campos
-    fechaIniInput.value = fechaActual;
-    fechaIniInput.max = fechaActual;
 
+    const fecha1 = new Date();
+    fecha1.setDate(fecha1.getDate() + 1);
+    const fechaUnDia = fecha1.toISOString().split('T')[0];
+
+    const fecha2 = new Date();
+    fecha2.setDate(fecha2.getDate() - 7);
+    const fechasemana = fecha2.toISOString().split('T')[0];
+
+    const fecha3 = new Date();
+    fecha3.setDate(fecha3.getDate() - 30);
+    const fechames = fecha3.toISOString().split('T')[0];
+
+    // Establecer la fecha actual como valor predeterminado para los campos
+    fechaIniInput.max = fechaActual;
+    fechaIniInput.value = fechaActual;
+    fechaIniInput.min = fechaActual;
+
+    fechaFinInput.max = fechaUnDia;
     fechaFinInput.value = fechaActual;
     fechaFinInput.min = fechaActual;
   });

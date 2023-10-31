@@ -36,7 +36,7 @@
    }
  }
  else{   
-  echo "<script> window.location.replace('/Tiempos_Vitae_Sup/index.php'); </script>";
+  echo "<script> window.location.replace('/Tiempos_Vitae_Sup/index.html'); </script>";
  }
 }
 ?>

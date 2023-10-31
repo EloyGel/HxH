@@ -2,15 +2,13 @@
 session_start();
 error_reporting(1);
 
-
-
 include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
 echo $fun->acceso($_SESSION['vitae'],'supervisor');
 
 ?>
- 
+  
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,7 +25,7 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
   <header>
   <div class="logo"> 
     <section class="logo-T">
-        <a href="../../index.php">
+        <a href="../../index.html">
           <picture>
             <source srcset="../../img/logo_vitae_N.png" type="image/png" alt="Vitae">
             <img class="logo-tomza" src="../../img/logo_vitae_N.png" alt="Vitae">
