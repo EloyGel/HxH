@@ -57,7 +57,7 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
          <div class="divfecha2">
            <label class="f2" for="Fechaini">FECHA INICIO</label>
            <label class="f2" for="Fechafin">HORA INICIO</label>
-           <input class="t1" type="date" id="fechaini" name="fechaini"/>
+           <input class="t1" type="date" id="fechaini" name="fechaini" data-archivo="sup"/>
            <div class="divfecha">
             <select class="s1" id="horaini" name="horaini">
              <?php

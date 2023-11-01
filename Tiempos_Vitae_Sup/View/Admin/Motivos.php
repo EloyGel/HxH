@@ -5,7 +5,7 @@ error_reporting(1);
 include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
-echo $fun->acceso($_SESSION['vitae'],'operador');
+echo $fun->acceso($_SESSION['vitae'],'admin');
 
 ?>
 
@@ -34,7 +34,7 @@ echo $fun->acceso($_SESSION['vitae'],'operador');
 <header>
   <div class="logo"> 
     <section class="logo-T">
-        <a href="../../index.php">
+        <a href="../../index.html">
           <picture>
             <source srcset="../../img/logo_vitae_N.png" type="image/png" alt="Vitae">
             <img class="logo-tomza" src="../../img/logo_vitae_N.png" alt="Vitae">
@@ -49,8 +49,9 @@ echo $fun->acceso($_SESSION['vitae'],'operador');
 <div class="nav-bg"> 
   <nav class="navegacion-principal contenedor">
     <a href="HxH.php">Registro</a>
-    <a href="Bitacora.php">Bitacora</a>
     <a href="Rechazos.php">Rechazos</a>
+    <a href="Motivos.php">Motivos</a>
+    <a href="Personal.php">Personal</a>
   </nav>
 </div> 
 
@@ -62,7 +63,7 @@ echo $fun->acceso($_SESSION['vitae'],'operador');
   <div class="divbtn" id="guardar">
     <input type="submit" class="button-6" name="guardar" value="Exportar">
   </div>
-  <table id="Hora" class="grid-text display table grid-item" data-archivo="operador">
+  <table id="Hora" class="grid-text display table grid-item" >
     <thead>
       <tr>
         <th>Fecha Inicio</th>

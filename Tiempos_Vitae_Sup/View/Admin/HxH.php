@@ -5,7 +5,7 @@ error_reporting(1);
 include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
-echo $fun->acceso($_SESSION['vitae'],'supervisor');
+echo $fun->acceso($_SESSION['vitae'],'admin');
 ?>
   
 <!doctype html>
@@ -36,9 +36,10 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
   <!--Barra de navegacion-->
 <div class="nav-bg"> 
   <nav class="navegacion-principal contenedor">
-      <a href="HxH.php">Registro</a>
-      <a href="Bitacora.php">Bitacora</a>
-      <a href="Rechazos.php">Rechazos</a>
+    <a href="HxH.php">Registro</a>
+    <a href="Rechazos.php">Rechazos</a>
+    <a href="Motivos.php">Motivos</a>
+    <a href="Personal.php">Personal</a>
   </nav>
 </div>
   <main role="main" class="">
@@ -56,7 +57,7 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
          <div class="divfecha2">
            <label class="f2" for="Fechaini">FECHA INICIO</label>
            <label class="f2" for="Fechafin">HORA INICIO</label>
-           <input class="t1" type="date" id="fechaini" name="fechaini" data-archivo="sup"/>
+           <input class="t1" type="date" id="fechaini" name="fechaini" data-archivo="ad"/>
            <div class="divfecha">
             <select class="s1" id="horaini" name="horaini">
              <?php

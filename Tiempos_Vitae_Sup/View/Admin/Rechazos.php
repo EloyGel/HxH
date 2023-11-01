@@ -5,9 +5,10 @@ error_reporting(1);
 include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
-echo $fun->acceso($_SESSION['vitae'],'supervisor');
-?>
-  
+echo $fun->acceso($_SESSION['vitae'],'admin');
+ 
+?> 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,14 +37,15 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
   <!--Barra de navegacion-->
 <div class="nav-bg"> 
   <nav class="navegacion-principal contenedor">
-      <a href="HxH.php">Registro</a>
-      <a href="Bitacora.php">Bitacora</a>
-      <a href="Rechazos.php">Rechazos</a>
+    <a href="HxH.php">Registro</a>
+    <a href="Rechazos.php">Rechazos</a>
+    <a href="Motivos.php">Motivos</a>
+    <a href="Personal.php">Personal</a>
   </nav>
 </div>
   <main role="main" class="">
-    <div class="contenedor sombra">
-     <p class="f1">Vitae Acondicionamiento <span id="fechaActual"></span></p>
+    <div class="contenedor sombra" >
+     <p class="f1">Rechazos - <span id="fechaActual"></span></p>
       <form class="" method="post" id="formulario" action="../../Controller/Principal.php">
         <div class="div">
           <label class="f2" for="sucursal">SUCURSAL</label>
@@ -56,7 +58,7 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
          <div class="divfecha2">
            <label class="f2" for="Fechaini">FECHA INICIO</label>
            <label class="f2" for="Fechafin">HORA INICIO</label>
-           <input class="t1" type="date" id="fechaini" name="fechaini" data-archivo="sup"/>
+           <input class="t1" type="date" id="fechaini" name="fechaini" data-archivo="ad"/>
            <div class="divfecha">
             <select class="s1" id="horaini" name="horaini">
              <?php
@@ -81,22 +83,22 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
            <label class="f2" for="Horafin">HORA FIN</label>
            <input class="t1" type="date" id="fechafin" name="fechafin"/>
            <div class="divfecha">
-           <select class="s1" id="horafin" name="horafin">
-            <?php
+            <select class="s1" id="horafin" name="horafin">
+             <?php
               include_once('../../Model/Funciones.php');
 
               $fun = new Funciones();
               echo $fun->obtenerHora();
-            ?> 
+             ?> 
             </select>
             <select class="s1" id="minfin" name="minfin">
-            <?php
+             <?php
               include_once('../../Model/Funciones.php');
 
               $fun = new Funciones();
               echo $fun->obtenerMin();
-            ?> 
-           </select>
+             ?> 
+            </select>
            </div>
          </div>
         </div>
@@ -104,10 +106,10 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
           <label class="f2" for="ot">OT</label>
           <select class="s1" name="ot" id="ot" required>
             <?php
-              include_once('../../Model/Funciones.php');
+            include_once('../../Model/Funciones.php');
 
-              $fun = new Funciones();
-              echo $fun->obtenerOT();
+            $fun = new Funciones();
+            echo $fun->obtenerOT();
             ?>
           </select>
         </div> 
@@ -117,10 +119,10 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
         </div> 
         <div class="div" id="producto">
            <label class="f2" for="producto">PRODUCTO</label>
-           <input required readonly type="text" class="t1" name="producto1" id="producto1" >
+           <input required readonly type="text" class="t1" id="producto" >
         </div>
-        <div class="div" id="maquina">
-          <label class="f2" for="maquina">MAQUINA</label>
+        <div class="div" id="maquinaR">
+          <label class="f2" for="maquinaR">MAQUINA</label>
           <select class="s1" name="maquina" id="maquina" required>
             <?php
             include_once('../../Model/Funciones.php');
@@ -130,12 +132,12 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
             ?>
           </select>
         </div> 
-       <!-- <div class="div" id="maquina">
+        <!--<div class="div" id="maquina">
            <label class="f2" for="maquina">MAQUINA</label>
-           <select class="s1" name="maquina1" id="maquina1" required> 
+           <select class="s1" name="maquina1" id="maquina1" required>
             <option selected disabled value="">Selecciona una opción</option>
            </select>
-        </div> -->
+        </div>-->
         <div class="div">
             <label class="f2" for="turno">TURNO</label>
             <select class="s1" name="turno" id="turno" required>
@@ -146,75 +148,40 @@ echo $fun->acceso($_SESSION['vitae'],'supervisor');
             <select>
         </div>
         <div class="div">
-            <label class="f2" for="lider">LÍDER DE LÍNEA</label>
-            <select class="s1" name="lider" id="lider" required>
-              <?php
-              include_once('../../Model/Funciones.php');
+          <label class="f2" for="lider">LÍDER DE LÍNEA</label>
+          <select class="s1" name="lider" id="lider" required>
+            <?php
+            include_once('../../Model/Funciones.php');
 
-              $fun = new Funciones();
-              echo $fun->obtenerLider();
-              ?>
-            </select>
+            $fun = new Funciones();
+            echo $fun->obtenerLider();
+            ?>
+          </select>
         </div> 
         <div class="div">
-            <label class="f2" for="supervisor">SUPERVISOR</label>
-            <select class="s1" name="supervisor" id="supervisor" required>
-              <?php
-              include_once('../../Model/Funciones.php');
+          <label class="f2" for="supervisor">SUPERVISOR</label>
+          <select class="s1" name="supervisor" id="supervisor" required>
+            <?php
+            include_once('../../Model/Funciones.php');
 
-              $fun = new Funciones();
-              echo $fun->obtenerSupervisor();
-              ?>
-            </select>
+            $fun = new Funciones();
+            echo $fun->obtenerSupervisor();
+            ?>
+          </select>
         </div>  
-        <div class="div">
-            <label class="f2" for="estatus">ESTATUS</label>
-            <select class="s1" name="estatus" id="estatus" required>
-              <option selected disabled value="">Selecciona una opción</option>
-              <option value="proceso">PROCESO</option>
-              <option value="paro">PARO</option>
-            </select>
+        <div class="div" id="piezas">
+          <label class="f2" for="VelocidadMaquina">CANTIDAD DE PIEZAS</label>
+          <input type="number" min="0" name="piezas" class="t1" id="VelocidadMaquina" placeholder="Escribe tu respuesta">
+        </div> 
+        <div class="div" id="rechazos">
+          <label class="f2" for="rechazo">MOTIVO DE RECHAZO</label>
+          <select class="s1" name="rechazo" id="rechazo" required>
+          </select>
         </div>
-          <!------------------------------------------------------------------------- Informacion del proceso ------------------------------------------------>
-          <div id="proceso">
-           <div class="div">
-            <label class="f2" for="VelocidadMaquina">CANTIDAD DE PIEZAS</label>
-            <input type="number" min="0" name="piezas" class="t1" id="VelocidadMaquina" placeholder="Escribe tu respuesta">
-           </div>          
-          </div>
-          <!------------------------------------------------------------------------ Informacion del paro ------------------------------------------------------>
-          <div id="paro">
-           <div class="div">
-             <label class="f2" for="MotParo">MOTIVO DEL PARO</label>
-             <select class="s1" name="motivo" id="motivo">
-             </select> 
-           </div>
-           <div id="paro1">
-            <div class="div">
-             <label class="f2" for="MotParo1">NIVEL 2</label>
-             <select class="s1" name="motivo1" id="motivo1">
-             </select> 
-            </div>
-           </div>
-           <div id="paro2">
-            <div class="div">
-             <label class="f2" for="MotParo2">NIVEL 3</label>
-             <select class="s1" name="motivo2" id="motivo2">
-             </select> 
-            </div>
-           </div>
-           <div id="paro3">
-            <div class="div">
-             <label class="f2" for="MotParo3">NIVEL 4</label>
-             <select class="s1" name="motivo3" id="motivo3">
-             </select> 
-            </div>
-           </div>
-          </div>
           <!------------------------------------------------------------------------ Botón de guardar ----------------------------------------------------------->
-          <div class="divbtn" id="guardar">
-           <input type="submit" class="button-6" name="guardar" value="Guardar">
-          </div>
+        <div class="divbtn" id="guardar">
+          <input type="submit" class="button-6" name="Guardar_rechazo" value="Rechazo">
+        </div>
 
           <!-- Informacion de fin de turno -->
       </form> 

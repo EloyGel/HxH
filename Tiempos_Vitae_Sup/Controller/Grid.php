@@ -9,6 +9,10 @@
     //echo obtenerDatosDeMuestra();
   }
   else
+  if (isset($_POST['action']) && $_POST['action'] === 'obtenerEmpleado') {
+    echo ObtenerPersonal($conexion);
+  }
+  else
   if (isset($_POST['action']) && $_POST['action'] === 'motivo1') {
     echo motivo1($conexion);
   }
@@ -55,7 +59,7 @@
     $resultados = array();
 
     foreach ($data as $fila) {
-        $resultado = array(
+        $resultado = array( 
           "Fecha_Inicio" => $fila["Fecha_Inicio"],
           "Fecha_Fin" => $fila["Fecha_Fin"],
           "Hora_Inicio" => $fila["Hora_Inicio"],
@@ -74,6 +78,30 @@
           "Lider" => iconv("ISO-8859-1", "UTF-8", $fila["Lider"]),
           "Supervisor" => iconv("ISO-8859-1", "UTF-8", $fila["Supervisor"]),
           "Sucursal" => iconv("ISO-8859-1", "UTF-8", $fila["Sucursal"])
+        );
+
+        $resultados[] = $resultado;
+    }
+  
+    header('Content-Type: application/json'); 
+    return json_encode($resultados);
+  }
+
+  function ObtenerPersonal($conexion){
+    $params = array(':p1' => 'personal', ':p2' => '', ':p3' => '');
+    $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
+    $query->execute($params);
+    $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultados = array();
+
+    foreach ($data as $fila) {
+        $resultado = array( 
+          "ID" => iconv("ISO-8859-1", "UTF-8", $fila["ID"]),
+          "NOMBRE" => iconv("ISO-8859-1", "UTF-8", $fila["NOMBRE"]),
+          "PUESTO" => iconv("ISO-8859-1", "UTF-8", $fila["PUESTO"]),
+          "EMPRESA" => iconv("ISO-8859-1", "UTF-8", $fila["EMPRESA"]),
+          "SUCURSAL" => iconv("ISO-8859-1", "UTF-8", $fila["SUCURSAL"])
         );
 
         $resultados[] = $resultado;

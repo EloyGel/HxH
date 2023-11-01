@@ -25,7 +25,7 @@ echo $fun->acceso($_SESSION['vitae'],'operador');
   <header>
   <div class="logo"> 
     <section class="logo-T">
-        <a href="../../index.php">
+        <a href="../../index.html">
           <picture>
             <source srcset="../../img/logo_vitae_N.png" type="image/png" alt="Vitae">
             <img class="logo-tomza" src="../../img/logo_vitae_N.png" alt="Vitae">

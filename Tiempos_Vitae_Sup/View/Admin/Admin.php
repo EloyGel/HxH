@@ -65,6 +65,7 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
     <button href = "../../View/Operador/HxH.php" class="boton BotonAdmin" id="boton1">Operador</button>
     <button href = "../../View/Supervisor/Supervisor.php" class="boton BotonAdmin" id="boton2">Supervisor</button>
     <button href = "../../View/Reporte.php" class="boton BotonAdmin" id="boton3">Reporte</button>
+    <button href = "../../View/Admin/HxH.php" class="boton BotonAdmin" id="boton4">Admin</button>
  </div>
  <script>
         document.getElementById("boton1").addEventListener("click", function() {
@@ -77,6 +78,10 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
 
         document.getElementById("boton3").addEventListener("click", function() {
             window.location.href = "../../View/Reporte.php";
+        });
+
+        document.getElementById("boton4").addEventListener("click", function() {
+            window.location.href = "../../View/Admin/HxH.php";
         });
     </script>
 </body>

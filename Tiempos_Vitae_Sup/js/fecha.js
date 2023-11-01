@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
             minFinSelect.value = '00';
             // Puedes restablecer los valores o tomar alguna otra acción apropiada aquí
         }
-    }
+    } 
 
     // Obtener la fecha actual en formato ISO (AAAA-MM-DD)
     const fechaActual = new Date().toISOString().split('T')[0];
@@ -93,12 +93,26 @@ document.addEventListener("DOMContentLoaded", function() {
     fecha3.setDate(fecha3.getDate() - 30);
     const fechames = fecha3.toISOString().split('T')[0];
 
-    // Establecer la fecha actual como valor predeterminado para los campos
-    fechaIniInput.max = fechaActual;
-    fechaIniInput.value = fechaActual;
-    fechaIniInput.min = fechaActual;
+    const Archivo = fechaIniInput.getAttribute('data-archivo');
 
-    fechaFinInput.max = fechaUnDia;
-    fechaFinInput.value = fechaActual;
+    if (Archivo === 'sup') {
+      fechaIniInput.min = fechasemana;
+    }
+    else
+    if (Archivo === 'ad') {
+      fechaIniInput.min = fechames;
+    }
+    else
+    {
+      fechaIniInput.min = fechaActual;
+    }
+
+    fechaIniInput.value = fechaActual;
+    fechaIniInput.max = fechaActual;
+
     fechaFinInput.min = fechaActual;
+    fechaFinInput.value = fechaActual;
+    fechaFinInput.max = fechaUnDia;
+
+
   });
