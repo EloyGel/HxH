@@ -40,7 +40,7 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
     <a href="Rechazos.php">Rechazos</a>
     <a href="Motivos.php">Motivos</a>
     <a href="Personal.php">Personal</a>
-  </nav>
+  </nav> 
 </div>
   <main role="main" class="">
     <div class="contenedor sombra">
