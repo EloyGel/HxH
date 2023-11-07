@@ -55,12 +55,12 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
   </nav>
 </div> 
 
-<div class="grid-container">
+<!-- <div class="grid-container">
  <h1>Registros del día <span id="fechaActual"></span></h1>
-</div>
+</div> -->
 
 <div class="contenedor grid-container">
-  <div class="divbtn" id="guardar">
+  <div class="divbtn" id="guardar"> 
     <form action="../../View/Admin/AddPersonal.php" method="POST">
       <button type="submit" class="button-6" name="add" value="Agregar">Agregar</button>
     </form>
@@ -96,7 +96,7 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script src="../../js/grid.js"></script>
-<script src="../../js/fecha.js"></script>
+<!-- <script src="../../js/fecha.js"></script> -->
 
 
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -29,7 +29,7 @@
   if(isset($_POST['maquina'])){
     $resultado = dividirOT($_POST['maquina']);
 
-    if ($resultado !== false) {
+    if ($resultado !== false) { 
       $p1 = $resultado["v1"];
       $p2 = $resultado["v2"];
     }

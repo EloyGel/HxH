@@ -86,7 +86,7 @@
           $html = '<option selected disabled value="">Selecciona una área</option>';
 
           foreach ($data as $valores):               
-            $html .= '<option value="'.$valores["DESCRIPCION"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
+            $html .= '<option value="'.$valores["ID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';
           endforeach;
 
           return $html;

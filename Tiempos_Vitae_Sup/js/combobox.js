@@ -24,17 +24,17 @@ $(document).ready(function(){
            $("#rechazo").html(data);
         });            
     });
-  })
+  }) 
 
 /////////////////////////////////////Motivo de paro/////////////////////////////////////////////////
 
   $("#maquina").change(function () {
     $("#maquina option:selected").each(function () { 
        $("#motivo1").val("");
-       $("#motivo2").val("");
+       $("#motivo2").val(""); 
        $("#motivo3").val("");
-       var id_motivo = $(this).val();
-       $.post("../../Controller/Combobox.php", { motivo: id_motivo }, function(data){
+       var id_motivo = $(this).val(); 
+       $.post("../../Controller/Combobox.php", { motivo: id_motivo }, function(data){             //Nivel1
            $("#motivo").html(data);
         });            
     });
@@ -45,7 +45,7 @@ $(document).ready(function(){
        $("#motivo2").val("");
        $("#motivo3").val("");
        var id_motivo1 = $(this).val();
-       $.post("../../Controller/Combobox.php", { motivo1: id_motivo1 }, function(data){
+       $.post("../../Controller/Combobox.php", { motivo1: id_motivo1 }, function(data){           //Nivel2
            $("#motivo1").html(data);
         });            
     });
@@ -55,7 +55,7 @@ $(document).ready(function(){
     $("#motivo1 option:selected").each(function () { 
        $("#motivo3").val("");
        var id_motivo2 = $(this).val();
-       $.post("../../Controller/Combobox.php", { motivo2: id_motivo2 }, function(data){
+       $.post("../../Controller/Combobox.php", { motivo2: id_motivo2 }, function(data){           //Nivel3
            $("#motivo2").html(data);
         });            
     });
@@ -64,7 +64,7 @@ $(document).ready(function(){
   $("#motivo2").change(function () {
     $("#motivo2 option:selected").each(function () { 
        var id_motivo3 = $(this).val();
-       $.post("../../Controller/Combobox.php", { motivo3: id_motivo3 }, function(data){
+       $.post("../../Controller/Combobox.php", { motivo3: id_motivo3 }, function(data){           //Nivel4
            $("#motivo3").html(data);
         });            
     });

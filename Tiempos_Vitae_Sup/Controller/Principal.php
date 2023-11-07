@@ -4,10 +4,6 @@
 
  $conexion = Conexion::getInstance();
 
-   /*echo '<script>';
-  echo 'console.log(' . json_encode($_POST) . ');';     //Revisar la información que trae el post
-  echo '</script>';*/
-
  $sucursal = intval($_POST['sucursal']); 
  $fechaini = $_POST['fechaini'];
  $fechafin = $_POST['fechafin'];
@@ -24,7 +20,7 @@
  if($prod !== false){$producto = $prod["v1"].'-'.$prod["v2"];}
  else{$producto = 'Error';}
  
- $maquina = $_POST['maquina'];
+ $maquina = intval($_POST['maquina']);
  $turno = $_POST['turno'];
  $lider = intval($_POST['lider']); 
  $supervisor = intval($_POST['supervisor']); 

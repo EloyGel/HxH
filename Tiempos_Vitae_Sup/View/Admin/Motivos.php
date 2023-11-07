@@ -55,35 +55,26 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
   </nav>
 </div> 
 
-<div class="grid-container">
+<!-- <div class="grid-container">
  <h1>Registros del día <span id="fechaActual"></span></h1>
-</div>
+</div> -->
 
 <div class="contenedor grid-container">
   <div class="divbtn" id="guardar">
+    <form action="../../View/Admin/AddMotivo.php" method="POST">
+      <button type="submit" class="button-6" name="add" value="Motivo">Agregar</button>
+    </form> 
     <input type="submit" class="button-6" name="guardar" value="Exportar">
   </div>
-  <table id="Hora" class="grid-text display table grid-item" >
+  <table id="Hora" class="grid-text display table grid-item" data-archivo="motivo">
     <thead>
       <tr>
-        <th>Fecha Inicio</th>
-        <th>Fecha Fin</th>
-        <th>Hora Inicio</th>
-        <th>Hora Fin</th>
-        <th>OT</th>
-        <th>Lote</th>
-        <th>Producto</th>
-        <th>Maquina</th>
-        <th>Estatus</th>
-        <th>Turno</th>
+        <th>Máquina</th>
+        <th>Tipo</th>
         <th>Nivel 1</th>
         <th>Nivel 2</th>
         <th>Nivel 3</th>
         <th>Nivel 4</th>
-        <th>Piezas</th>
-        <th>Lider</th>
-        <th>Supervisor</th>
-        <th>Sucursal</th>
       </tr>
     </thead>
       <tbody>

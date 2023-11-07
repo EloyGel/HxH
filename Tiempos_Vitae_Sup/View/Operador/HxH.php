@@ -99,7 +99,7 @@ echo $fun->acceso($_SESSION['vitae'],'operador');
             ?> 
            </select>
            </div>
-         </div>
+         </div> 
         </div>
         <div class="div" id="OTsel" >
           <label class="f2" for="ot">OT</label>

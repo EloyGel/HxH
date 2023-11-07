@@ -74,8 +74,8 @@ if(isset($_POST['add'])){
             </select>
         </div>
           <!------------------------------------------------------------------------ Botón de guardar ----------------------------------------------------------->
-        <div class="divbtn" id="personal">
-          <input type="submit" class="button-6" name="personal" value="Guardar">
+        <div class="divbtn" id="motivo">
+          <input type="submit" class="button-6" name="motivo" value="Guardar">
         </div>
       </form> 
       </div>
