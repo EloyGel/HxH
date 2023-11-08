@@ -70,7 +70,7 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
     <thead>
       <tr>
         <th>Máquina</th>
-        <th>Tipo</th>
+        <th>Tipo</th> 
         <th>Nivel 1</th>
         <th>Nivel 2</th>
         <th>Nivel 3</th>

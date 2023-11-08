@@ -99,10 +99,10 @@
         $resultado = array( 
           "MAQUINA" => iconv("ISO-8859-1", "UTF-8", $fila["MAQUINA"]),
           "TIPO" => iconv("ISO-8859-1", "UTF-8", $fila["TIPO"]),
-          "Nivel_1" => iconv("ISO-8859-1", "UTF-8", $fila["Nivel_1"]),
-          "Nivel_2" => iconv("ISO-8859-1", "UTF-8", $fila["Nivel_2"]),
-          "Nivel_3" => iconv("ISO-8859-1", "UTF-8", $fila["Nivel_3"]),
-          "Nivel_4" => iconv("ISO-8859-1", "UTF-8", $fila["Nivel_4"])
+          "NIVEL 1" => iconv("ISO-8859-1", "UTF-8", $fila["nivel_1"]),
+          "NIVEL 2" => iconv("ISO-8859-1", "UTF-8", $fila["nivel_2"]),
+          "NIVEL 3" => iconv("ISO-8859-1", "UTF-8", $fila["nivel_3"]),
+          "NIVEL 4" => iconv("ISO-8859-1", "UTF-8", $fila["nivel_4"])
         );
 
         $resultados[] = $resultado;

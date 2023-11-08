@@ -86,7 +86,7 @@ function DataTableMotivo() {
             "dataSrc": ""
         },
         "columns": [
-            { "data": "MAQUINA" }, 
+            { "data": "MAQUINA" },  
             { "data": "TIPO" },
             { "data": "NIVEL 1" },
             { "data": "NIVEL 2" },
