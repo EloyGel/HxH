@@ -62,7 +62,7 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
 <div class="contenedor grid-container">
   <div class="divbtn" id="guardar">
     <form action="../../View/Admin/AddMotivo.php" method="POST">
-      <button type="submit" class="button-6" name="add" value="Motivo">Agregar</button>
+      <button type="submit" class="button-6" name="add" value="Motivo">Agregar</button> 
     </form> 
     <input type="submit" class="button-6" name="guardar" value="Exportar">
   </div>

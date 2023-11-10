@@ -83,7 +83,7 @@
           $query = $this->conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
           $query->execute($params);
           $data = $query->fetchAll();
-          $html = '<option selected disabled value="">Selecciona una área</option>';
+          $html = '<option selected disabled value="">Selecciona una máquina</option>';
 
           foreach ($data as $valores):               
             $html .= '<option value="'.$valores["ID"].'">'.iconv("ISO-8859-1","UTF-8", $valores["DESCRIPCION"]).'</option>';

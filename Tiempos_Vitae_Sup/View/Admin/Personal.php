@@ -68,7 +68,7 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
   </div>
   <table id="Hora" class="grid-text display table grid-item" data-archivo="personal">
     <thead>
-      <tr>
+      <tr> 
         <th>ANTEFIRMA</th>
         <th>NOMBRE</th>
         <th>PUESTO</th>
