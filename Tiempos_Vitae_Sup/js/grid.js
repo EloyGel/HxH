@@ -15,11 +15,16 @@ $(document).ready(function() {
   if (TipoGrid === 'motivo'){
     DataTableMotivo();
   }
-    // Aplicar los filtros en el DataTable
-    //aplicarFiltros(dataTable);
+
+  $('#ExpPDF').on('click', function () {
+    exportarAPDF();
+  });
+
 });
 
-
+function exportarAPDF() {
+    table.buttons.exportData({ modifier: { selected: true } }, 'selected').pdf();
+}
 
 // Función para inicializar el DataTable
 function DataTablePersonal() {

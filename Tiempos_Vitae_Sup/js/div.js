@@ -36,18 +36,39 @@ $(document).ready(function(){
     }
   })
 
-  $('#motivo').change(function(){
-   if($('#motivo').val() == 'RECHAZO'){
+  $('#motivos').change(function(){
+   if($('#motivos').val() == 'RECHAZO'){
+    $('#n1').val(null);
+    $('#n2').val("");
+    $('#n3').val("");
+    $('#n4').val("");
     $("#n1").css("display","block");
     $("#n2").css("display","none");
     $("#n3").css("display","none");
     $("#n4").css("display","none");
+
    }else
    {
     $("#n1").css("display","block");
-    $("#n2").css("display","block");
-    $("#n3").css("display","block");
-    $("#n4").css("display","block");
+    $('#n1').change(function(){
+     if($('#n1').val() != null){
+      $("#n2").css("display","block");
+      $('#n2').change(function(){
+       if($('#n2').val() != null){
+        $("#n3").css("display","block");
+        $('#n3').change(function(){
+         if($('#n3').val() != null){
+          $("#n4").css("display","block");
+          }  
+        }) //nivel 3
+       }
+      }) //nivel 2
+     }
+    }) //nivel 1
+
+    
+    
+    
    }
 
 
