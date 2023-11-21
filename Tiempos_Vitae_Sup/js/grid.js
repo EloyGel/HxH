@@ -16,9 +16,9 @@ $(document).ready(function() {
     DataTableMotivo();
   }
 
-  $('#ExpPDF').on('click', function () {
+  /*$('#ExpPDF').on('click', function () {
     exportarAPDF();
-  });
+  });*/
 
 });
 

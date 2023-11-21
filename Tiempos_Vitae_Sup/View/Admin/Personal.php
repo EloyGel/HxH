@@ -64,7 +64,9 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
     <form action="../../View/Admin/AddPersonal.php" method="POST">
       <button type="submit" class="button-6" name="add" value="Agregar">Agregar</button>
     </form>
-    <input type="submit" class="button-6" name="exp" id ="ExpPDF" value="Exportar PDF">
+    <!-- <input type="submit" class="button-6" name="exp" id ="ExpPDF" value="Exportar PDF"> -->
+    <button class="button-6" id="exportarExcel">Exportar a Excel</button>
+    <button class="button-6" id="exportarPDF">Exportar a PDF</button>
   </div>
   <table id="Hora" class="grid-text display table grid-item" data-archivo="personal">
     <thead>
@@ -91,27 +93,38 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
 <script src="../../js/library/modernizr.js"></script>
 <script src="../../js/library/animacion-index.js"></script> 
 
+
 <script src="../../js/library/jquery-3.7.0.js"></script>
 <script src="../../js/library/jquery.dataTables.min.js"></script> 
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 
 <script src="../../js/grid.js"></script>
 <!--<script src="../../js/fecha.js"></script> -->
 
 
-<!-- JS de PDFMake -->
-<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/vfs_fonts.js"></script>
+<!--
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
-<!-- CSS de DataTables Buttons -->
+
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.0/css/buttons.dataTables.min.css">
 
-<!-- JS de DataTables Buttons -->
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.3.0/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.3.0/js/buttons.html5.min.js"></script>
 
-
+ JS de DataTables Buttons Flash (solo si necesitas exportar a formatos como Excel) 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.3.0/js/buttons.flash.min.js"></script>-->
 
 
 
