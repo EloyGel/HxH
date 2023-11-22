@@ -14,6 +14,9 @@ $(document).ready(function() {
   else
   if (TipoGrid === 'motivo'){
     DataTableMotivo();
+  }else
+  if(TipoGrid === 'tiempos'){
+    DataTableTiempos();
   }
 
   /*$('#ExpPDF').on('click', function () {
@@ -27,6 +30,52 @@ function exportarAPDF() {
 }
 
 // Función para inicializar el DataTable
+function DataTableTiempos() {
+    var table = $('#Hora').DataTable({ 
+        'processing': true,
+        'serverMethod': 'post',
+        //"scrollX": true, 
+        "ajax": {
+            "url": "../../Controller/Grid.php",
+            "type": "POST",
+            "data": {
+                "action": "obtenerEmpleado"
+            },
+            "dataType": "json",
+            "dataSrc": ""
+        },
+        "columns": [
+            { "data": "HORA" }, 
+            { "data": "MAQUINA" },
+        ],
+        "language": {
+            "decimal":        "",
+            "emptyTable":     "No hay datos disponibles en la tabla",
+            "info":           "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+            "infoEmpty":      "Mostrando 0 a 0 de 0 entradas",
+            "infoFiltered":   "(filtrado de _MAX_ entradas totales)",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "lengthMenu":     "Mostrar _MENU_ entradas",
+            "loadingRecords": "Cargando...",
+            "processing":     "Procesando...",
+            "search":         "Buscar:",
+            "zeroRecords":    "No se encontraron registros coincidentes",
+            "paginate": {
+                "first":      "Primero",
+                "last":       "Último",
+                "next":       "Siguiente",
+                "previous":   "Anterior"
+            },
+            "aria": {
+                "sortAscending":  ": activar para ordenar la columna en orden ascendente",
+                "sortDescending": ": activar para ordenar la columna en orden descendente"
+            }
+        }
+    });
+    return table;
+}
+
 function DataTablePersonal() {
     var table = $('#Hora').DataTable({ 
         'processing': true,
@@ -130,7 +179,7 @@ function DataTableOperador() {
     var table = $('#Hora').DataTable({ 
         'processing': true,
         'serverMethod': 'post',
-        //"scrollX": true, 
+        "scrollX": true, 
         "ajax": {
             "url": "../../Controller/Grid.php",
             "type": "POST",

@@ -217,25 +217,13 @@
 ////////////////////////////////////////////////////////////Funciones hora y minutos//////////////////////////////////////////////////
 
 public function acceso($sesion,$permiso) {
-  try {
-    if($sesion['PERFIL'] != null || $sesion['PERFIL'] !=''){
-      if($sesion['PERFIL'] == 'admin' || $sesion['PERFIL'] == $permiso){
-       //echo '<script language="javascript">alert("Bienvenido");</script>';
+  if($sesion['PERFIL'] != null || $sesion['PERFIL'] !=''){
+    if($sesion['PERFIL'] == 'admin' || $sesion['PERFIL'] == $permiso)
+      {}else{
+        header("location:/Tiempos_Vitae_Sup/View/error.html");
       }
-      else
-      { //echo 'No cuentas con permisos'; die(); 
-       header("location:/Tiempos_Vitae_Sup/View/error.html");
-      }
-
-     }
-     else
-     { //echo 'No cuentas con autorización'; die(); 
-       header("location:/Tiempos_Vitae_Sup/View/error.html");
-     }
-
-  } catch (PDOException $e) {
-      echo "Error: " . $e->getMessage();
-  }
+  }else
+  {header("location:/Tiempos_Vitae_Sup/View/error.html");}
 }
 
 ////////////////////////////////////////////////////////////Validación de acceso//////////////////////////////////////////////////
