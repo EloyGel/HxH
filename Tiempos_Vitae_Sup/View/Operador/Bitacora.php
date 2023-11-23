@@ -41,7 +41,6 @@ echo $fun->acceso($_SESSION['vitae'],'operador');
           </picture>
         </a>  
     </section>
-
   </div>
 </header> 
 

@@ -228,6 +228,66 @@ public function acceso($sesion,$permiso) {
 
 ////////////////////////////////////////////////////////////Validación de acceso//////////////////////////////////////////////////
 
+public function header($tit){
+  if($tit == 'Reporte'){
+    $titulo = 'Reporte de Horas no capturadas';
+  }else
+  if($tit =='Bitacora'){
+    $titulo = 'Bitacora del día en curso';
+  }else
+  if($tit =='Rechazo'){
+    $titulo = 'Rechazos';
+  }else
+  if($tit =='Registro'){
+    $titulo = 'Registro';
+  };
+
+  $html = 
+  '
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>'.$titulo.'</title>
+  <link rel = "icon" href="../../img/timer.ico" type="image / x-icon">
+  <link rel="preload" href="../../css/normalize.css" as="style">
+  <link href="../../css/normalize.css" rel="stylesheet"> <!--Normalize-->
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="stylesheet" href="https://use.typekit.net/qmu2qyo.css"><!--Fuente Myriad pro-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> <!--Fuente Monyserrat sans-->
+  <link rel="preload" href="../../css/styles.css?v=1.0" as="style">
+  <link href="../../css/styles.css?v=1.0" rel="stylesheet"> <!--Hoja de estilos-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css?v=1.0">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css?v=1.0">
+  </head>
+  <body>
+
+  <header>
+    <div class="logo"> 
+      <section class="logo-T">
+        <a href="../../index.html">
+          <picture>
+            <source srcset="../../img/logo_vitae_N.png" type="image/png" alt="Vitae">
+            <img class="logo-tomza" src="../../img/logo_vitae_N.png" alt="Vitae">
+          </picture>
+        </a>  
+      </section>
+    </div>
+  </header> 
+
+  ';
+
+
+  return $html;
+}
+
+
+////////////////////////////////////////////////////////////Generación de código HTML//////////////////////////////////////////////////
+
    }
 
 

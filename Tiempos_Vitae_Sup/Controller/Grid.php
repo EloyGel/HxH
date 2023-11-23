@@ -18,12 +18,31 @@
       echo ObtenerMotivos($conexion);
     }
     else
-    if ($_POST['action'] === 'motivo2') {
-      echo motivo2($conexion);
+    if ($_POST['action'] === 'obtenerTiempos') {
+      echo ObtenerTiempos($conexion);
     }
   }
 
+  function ObtenerTiempos($conexion){
+    $params = array(':p1' => 'tiempos', ':p2' => '', ':p3' => '');
+    $query = $conexion->obtenerConexion()->prepare("EXEC GV.HORA_A_HORA_SEL :p1,:p2,:p3");
+    $query->execute($params);
+    $data = $query->fetchAll(PDO::FETCH_ASSOC);
 
+    $resultados = array();
+
+    foreach ($data as $fila) {
+        $resultado = array( 
+          "HORA" => intval($fila["HORA"]),
+          "MAQUINA" => iconv("ISO-8859-1", "UTF-8", $fila["MAQUINA"]) 
+        );
+
+        $resultados[] = $resultado;
+    }
+  
+    header('Content-Type: application/json'); 
+    return json_encode($resultados);
+  }
 
 
   function obtenerGridNow($conexion){

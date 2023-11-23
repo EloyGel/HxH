@@ -6,45 +6,21 @@ include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
 echo $fun->acceso($_SESSION['vitae'],'supervisor');
- 
+echo $fun->header('Rechazo');
 ?> 
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../img/timer.ico">
-    <title>HxH</title>
-    <link href="../../css/styles.css" rel="stylesheet"> <!--Hoja de estilos-->
-
-  </head>
-  <body>
-  <header>
-  <div class="logo"> 
-    <section class="logo-T">
-        <a href="../../index.html">
-          <picture>
-            <source srcset="../../img/logo_vitae_N.png" type="image/png" alt="Vitae">
-            <img class="logo-tomza" src="../../img/logo_vitae_N.png" alt="Vitae">
-          </picture>
-        </a>  
-    </section>
-   </div>
-  </header> 
   <!--Barra de navegacion-->
 <div class="nav-bg"> 
   <nav class="navegacion-principal contenedor">
-      <a href="HxH.php">Registro</a>
-      <a href="Bitacora.php">Bitacora</a>
-      <a href="Rechazos.php">Rechazos</a>
+    <a href="HxH.php">Registro</a>
+    <a href="Rechazos.php">Rechazos</a>
+    <a href="Bitacora.php">Bitacora</a>
+    <a href="Reporte.php">Reporte</a>
   </nav>
 </div>
   <main role="main" class="">
     <div class="contenedor sombra" >
-     <p class="f1">Rechazos - <span id="fechaActual"></span></p>
+     <p class="f1">Rechazos <span id="fechaActual"></span></p>
       <form class="" method="post" id="formulario" action="../../Controller/Principal.php">
         <div class="div">
           <label class="f2" for="sucursal">SUCURSAL</label>

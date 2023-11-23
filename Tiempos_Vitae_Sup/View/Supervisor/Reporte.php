@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 error_reporting(1);
 
@@ -6,9 +6,9 @@ include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
 echo $fun->acceso($_SESSION['vitae'],'supervisor');
-echo $fun->header('Bitacora');
+echo $fun->header('Reporte');
 ?>
- 
+
 <!--Barra de navegacion-->
 <div class="nav-bg"> 
   <nav class="navegacion-principal contenedor">
@@ -20,34 +20,18 @@ echo $fun->header('Bitacora');
 </div> 
 
 <div class="grid-container">
- <h1>Registros del día <span id="fechaActual"></span></h1>
+ <h1>Horas no registradas</h1> <!-- <span id="fechaActual"></span> -->
 </div>
 
 <div class="contenedor grid-container">
   <div class="divbtn" id="guardar">
     <input type="submit" class="button-6" name="guardar" value="Exportar">
   </div>
-  <table id="Hora" class="grid-text display table grid-item" >
+  <table id="Hora" class="grid-text display table grid-item" data-archivo="tiempos">
     <thead>
       <tr>
-        <th>Fecha Inicio</th>
-        <th>Fecha Fin</th>
-        <th>Hora Inicio</th>
-        <th>Hora Fin</th>
-        <th>OT</th>
-        <th>Lote</th>
-        <th>Producto</th>
-        <th>Maquina</th>
-        <th>Estatus</th>
-        <th>Turno</th>
-        <th>Nivel 1</th>
-        <th>Nivel 2</th>
-        <th>Nivel 3</th>
-        <th>Nivel 4</th>
-        <th>Piezas</th>
-        <th>Lider</th>
-        <th>Supervisor</th>
-        <th>Sucursal</th>
+        <th>Máquina</th>
+        <th>Hora no reportada</th>
       </tr>
     </thead>
       <tbody>
@@ -55,12 +39,6 @@ echo $fun->header('Bitacora');
       </tbody>
   </table>
 </div>
-
-<footer class="contenedor derechos">   
-  <a href="https://github.com/eloyradilla95" target="_black">
-    <p class="eradilla"> #PPCDSALVC</p>
-  </a>
-</footer>
 
 <script src="../../js/library/modernizr.js"></script>
 <script src="../../js/library/animacion-index.js"></script> 
@@ -75,9 +53,6 @@ echo $fun->header('Bitacora');
 
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>-->
-
-
-
 
 
 </body>

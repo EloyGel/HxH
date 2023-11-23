@@ -39,39 +39,16 @@ function DataTableTiempos() {
             "url": "../../Controller/Grid.php",
             "type": "POST",
             "data": {
-                "action": "obtenerEmpleado"
+                "action": "obtenerTiempos"
             },
             "dataType": "json",
             "dataSrc": ""
         },
         "columns": [
-            { "data": "HORA" }, 
-            { "data": "MAQUINA" },
+            { "data": "MAQUINA" }, 
+            { "data": "HORA" },
         ],
-        "language": {
-            "decimal":        "",
-            "emptyTable":     "No hay datos disponibles en la tabla",
-            "info":           "Mostrando _START_ a _END_ de _TOTAL_ entradas",
-            "infoEmpty":      "Mostrando 0 a 0 de 0 entradas",
-            "infoFiltered":   "(filtrado de _MAX_ entradas totales)",
-            "infoPostFix":    "",
-            "thousands":      ",",
-            "lengthMenu":     "Mostrar _MENU_ entradas",
-            "loadingRecords": "Cargando...",
-            "processing":     "Procesando...",
-            "search":         "Buscar:",
-            "zeroRecords":    "No se encontraron registros coincidentes",
-            "paginate": {
-                "first":      "Primero",
-                "last":       "Último",
-                "next":       "Siguiente",
-                "previous":   "Anterior"
-            },
-            "aria": {
-                "sortAscending":  ": activar para ordenar la columna en orden ascendente",
-                "sortDescending": ": activar para ordenar la columna en orden descendente"
-            }
-        }
+        "language": languageOptions
     });
     return table;
 }
@@ -97,30 +74,7 @@ function DataTablePersonal() {
             { "data": "EMPRESA" },
             { "data": "SUCURSAL" }
         ],
-        "language": {
-            "decimal":        "",
-            "emptyTable":     "No hay datos disponibles en la tabla",
-            "info":           "Mostrando _START_ a _END_ de _TOTAL_ entradas",
-            "infoEmpty":      "Mostrando 0 a 0 de 0 entradas",
-            "infoFiltered":   "(filtrado de _MAX_ entradas totales)",
-            "infoPostFix":    "",
-            "thousands":      ",",
-            "lengthMenu":     "Mostrar _MENU_ entradas",
-            "loadingRecords": "Cargando...",
-            "processing":     "Procesando...",
-            "search":         "Buscar:",
-            "zeroRecords":    "No se encontraron registros coincidentes",
-            "paginate": {
-                "first":      "Primero",
-                "last":       "Último",
-                "next":       "Siguiente",
-                "previous":   "Anterior"
-            },
-            "aria": {
-                "sortAscending":  ": activar para ordenar la columna en orden ascendente",
-                "sortDescending": ": activar para ordenar la columna en orden descendente"
-            }
-        }
+        "language": languageOptions
     });
     return table;
 }
@@ -147,30 +101,7 @@ function DataTableMotivo() {
             { "data": "NIVEL 3" },
             { "data": "NIVEL 4" }
         ],
-        "language": {
-            "decimal":        "",
-            "emptyTable":     "No hay datos disponibles en la tabla",
-            "info":           "Mostrando _START_ a _END_ de _TOTAL_ entradas",
-            "infoEmpty":      "Mostrando 0 a 0 de 0 entradas",
-            "infoFiltered":   "(filtrado de _MAX_ entradas totales)",
-            "infoPostFix":    "",
-            "thousands":      ",",
-            "lengthMenu":     "Mostrar _MENU_ entradas",
-            "loadingRecords": "Cargando...",
-            "processing":     "Procesando...",
-            "search":         "Buscar:",
-            "zeroRecords":    "No se encontraron registros coincidentes",
-            "paginate": {
-                "first":      "Primero",
-                "last":       "Último",
-                "next":       "Siguiente",
-                "previous":   "Anterior"
-            },
-            "aria": {
-                "sortAscending":  ": activar para ordenar la columna en orden ascendente",
-                "sortDescending": ": activar para ordenar la columna en orden descendente"
-            }
-        }
+        "language": languageOptions
     });
     return table;
 }
@@ -209,33 +140,35 @@ function DataTableOperador() {
             { "data": "Supervisor" },
             { "data": "Sucursal" }
         ],
-        "language": {
-            "decimal":        "",
-            "emptyTable":     "No hay datos disponibles en la tabla",
-            "info":           "Mostrando _START_ a _END_ de _TOTAL_ entradas",
-            "infoEmpty":      "Mostrando 0 a 0 de 0 entradas",
-            "infoFiltered":   "(filtrado de _MAX_ entradas totales)",
-            "infoPostFix":    "",
-            "thousands":      ",",
-            "lengthMenu":     "Mostrar _MENU_ entradas",
-            "loadingRecords": "Cargando...",
-            "processing":     "Procesando...",
-            "search":         "Buscar:",
-            "zeroRecords":    "No se encontraron registros coincidentes",
-            "paginate": {
-                "first":      "Primero",
-                "last":       "Último",
-                "next":       "Siguiente",
-                "previous":   "Anterior"
-            },
-            "aria": {
-                "sortAscending":  ": activar para ordenar la columna en orden ascendente",
-                "sortDescending": ": activar para ordenar la columna en orden descendente"
-            }
-        }
+        "language": languageOptions
     });
     return table;
 }
+
+var languageOptions = {
+    "decimal": "",
+    "emptyTable": "No hay datos disponibles en la tabla",
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+    "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
+    "infoFiltered": "(filtrado de _MAX_ entradas totales)",
+    "infoPostFix": "",
+    "thousands": ",",
+    "lengthMenu": "Mostrar _MENU_ entradas",
+    "loadingRecords": "Cargando...",
+    "processing": "Procesando...",
+    "search": "Buscar:",
+    "zeroRecords": "No se encontraron registros coincidentes",
+    "paginate": {
+        "first": "Primero",
+        "last": "Último",
+        "next": "Siguiente",
+        "previous": "Anterior"
+    },
+    "aria": {
+        "sortAscending": ": activar para ordenar la columna en orden ascendente",
+        "sortDescending": ": activar para ordenar la columna en orden descendente"
+    }
+};
 
 
 /*function aplicarFiltros(table) {
