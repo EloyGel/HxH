@@ -95,11 +95,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const Archivo = fechaIniInput.getAttribute('data-archivo');
 
-    if (Archivo === 'sup') {
+    if (Archivo === 'Sup') {
       fechaIniInput.min = fechasemana;
     }
     else
-    if (Archivo === 'ad') {
+    if (Archivo === 'Admin') {
       fechaIniInput.min = fechames;
     }
     else

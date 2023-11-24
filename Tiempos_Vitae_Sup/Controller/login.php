@@ -12,26 +12,23 @@
  if(count($resultado) >= 1){       
    foreach ($resultado as $fila) {
 
-      $datos = array('USU' => $fila['ID'], 'PERFIL' => $fila['PERFIL']);
+      $datos = array('USU' => $fila['ID'], 'PERFIL' => $fila['PERFIL'],'TIME' => time());
+      $_SESSION['vitae'] = $datos;
 
-     if($datos['PERFIL'] === 'operador') {
-        $_SESSION['vitae'] = $datos;
-        header("location:/Tiempos_Vitae_Sup/View/Operador/HxH.php");
+     if($datos['PERFIL'] === 'operador') { 
+      header("location:/Tiempos_Vitae_Sup/View/Operador/HxH.php");
      }
      else
      if($datos['PERFIL'] === 'supervisor') {
-        $_SESSION['vitae'] = $datos;
-        header("location:/Tiempos_Vitae_Sup/View/Supervisor/Supervisor.php");
+      header("location:/Tiempos_Vitae_Sup/View/Supervisor/Supervisor.php");
      }
      else
      if($datos['PERFIL'] === 'directivo') {
-        $_SESSION['vitae'] = $datos;
-        header("location:/Tiempos_Vitae_Sup/View/Reporte.php");
+      header("location:/Tiempos_Vitae_Sup/View/Reporte.php");
      }
      else
      if($datos['PERFIL'] === 'admin') {
-        $_SESSION['vitae'] = $datos;
-        header("location:/Tiempos_Vitae_Sup/View/Admin/Admin.php");
+      header("location:/Tiempos_Vitae_Sup/View/Admin/Admin.php");
      }   
    }
  }

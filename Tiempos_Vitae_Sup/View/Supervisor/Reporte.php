@@ -6,18 +6,8 @@ include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
 echo $fun->acceso($_SESSION['vitae'],'supervisor');
-echo $fun->header('Reporte');
-?>
-
-<!--Barra de navegacion-->
-<div class="nav-bg"> 
-  <nav class="navegacion-principal contenedor">
-    <a href="HxH.php">Registro</a>
-    <a href="Rechazos.php">Rechazos</a>
-    <a href="Bitacora.php">Bitacora</a>
-    <a href="Reporte.php">Reporte</a>
-  </nav>
-</div> 
+echo $fun->header(4,'Sup');
+?> 
 
 <div class="grid-container">
  <h1>Horas no registradas</h1> <!-- <span id="fechaActual"></span> -->
