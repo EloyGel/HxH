@@ -1,7 +1,7 @@
 <?php
    require_once ('db.php'); 
    error_reporting(1);
-
+ 
    class Funciones {
     private $conexion;
    
@@ -240,6 +240,12 @@ public function header($tit,$tipo){
   }else
   if($tit == 4){
     $titulo = 'Reporte de Horas no capturadas'; 
+  }else
+  if($tit == 5){
+    $titulo = 'Motivos de paro'; 
+  }else
+  if($tit == 6){
+    $titulo = 'Listado de personal'; 
   }
 
   if($tipo == 'Ope'){
@@ -271,15 +277,19 @@ public function header($tit,$tipo){
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> <!--Fuente Monyserrat sans-->
   <link rel="preload" href="../../css/styles.css?v=1.0" as="style">
   <link href="../../css/styles.css?v=1.0" rel="stylesheet"> <!--Hoja de estilos-->
+  <!--
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css?v=1.0">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css?v=1.0">
+  -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css?v=1.0">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css?v=1.0">
   </head>
   <body>
 
   <header>
     <div class="logo"> 
       <section class="logo-T">
-        <a href="../../index.html">
+        <a href="../../index.php">
           <picture>
             <source srcset="../../img/logo_vitae_N.png" type="image/png" alt="Vitae">
             <img class="logo-tomza" src="../../img/logo_vitae_N.png" alt="Vitae">
@@ -500,16 +510,16 @@ public function HxH($fecha){
     </div>
   </main>
   
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="../../js/popper.min.js"></script>
-  <script src="../../js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js?v=1.0"></script>
+  <script src="../../js/popper.min.js?v=1.0"></script>
+  <script src="../../js/bootstrap.min.js?v=1.0"></script>
 
-  <script src="../../js/div.js"></script> <!--Ocultar Div -->
-  <script src="../../js/combobox.js"></script> <!--Combobox dinamico -->
-  <script src="../../js/fecha.js"></script> <!--Fecha -->
+  <script src="../../js/div.js?v=1.0"></script> <!--Ocultar Div -->
+  <script src="../../js/combobox.js?v=1.0"></script> <!--Combobox dinamico -->
+  <script src="../../js/fecha.js?v=1.0"></script> <!--Fecha -->
   
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js?v=1.0"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js?v=1.0"></script>
 
   </body>
   </html>
@@ -642,16 +652,16 @@ public function Rechazo($fecha){
     </div>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../../js/popper.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js?v=1.0"></script>
+    <script src="../../js/popper.min.js?v=1.0"></script>
+    <script src="../../js/bootstrap.min.js?v=1.0"></script>
 
-    <script src="../../js/div.js"></script> <!--Ocultar Div -->
-    <script src="../../js/combobox.js"></script> <!--Combobox dinamico -->
-    <script src="../../js/fecha.js"></script> <!--Fecha -->
+    <script src="../../js/div.js?v=1.0"></script> <!--Ocultar Div -->
+    <script src="../../js/combobox.js?v=1.0"></script> <!--Combobox dinamico -->
+    <script src="../../js/fecha.js?v=1.0"></script> <!--Fecha -->
   
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js?v=1.0"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js?v=1.0"></script>
 
    </body>
   </html>
@@ -668,9 +678,6 @@ public function Bitacora($tipo){
   </div>
 
   <div class="contenedor grid-container">
-  <div class="divbtn" id="guardar">
-    <input type="submit" class="button-6" name="guardar" value="Exportar">
-  </div>
   <table id="Hora" class="grid-text display table grid-item" data-archivo="'.$tipo.'">
     <thead>
       <tr>
@@ -700,18 +707,74 @@ public function Bitacora($tipo){
   </table>
   </div>
 
-  <script src="../../js/library/modernizr.js"></script>
-  <script src="../../js/library/animacion-index.js"></script> 
+
+  <!--
   <script src="../../js/library/jquery-3.7.0.js"></script>
   <script src="../../js/library/jquery.dataTables.min.js"></script>
-
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  -->
 
-  <script src="../../js/grid.js"></script>
-  <script src="../../js/fecha.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js?v=1.0"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js?v=1.0"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js?v=1.0"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js?v=1.0"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js?v=1.0"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js?v=1.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js?v=1.0"></script>
 
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>-->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css?v=1.0">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css?v=1.0">
+
+  <script src="https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json?v=1.0"></script>
+
+  <script src="../../js/library/modernizr.js?v=1.0"></script>
+  <script src="../../js/library/animacion-index.js?v=1.0"></script> 
+
+  <script src="../../js/grid.js?v=1.0"></script>
+  <script src="../../js/fecha.js?v=1.0"></script>
+
+
+  </body>
+  </html>
+  ';
+
+  return $html;
+}
+
+public function index(){
+  $html =
+  '
+  <!DOCTYPE html>
+  <html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <link rel="icon" href="img/timer.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?v=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css?v=1.0">
+    <link rel="stylesheet" href="css/login2.css?v=1.0">
+  </head>
+  <body>
+  <!-- partial:index.partial.html -->
+  <div class="wrapper">
+    <form class="login" method="POST" action="Controller/login.php" autocomplete="off">
+      <p class="title">Vitae Laboratorios</p>
+      <input required type="text" name="usu" placeholder="Usuario" autofocus/>
+      <i class="fa fa-user"></i>
+      <input required type="password" name="pass" placeholder="Contraseña" />
+      <i class="fa fa-key"></i>
+      <button type="submit" name="guardar">
+        <i class="spinner"></i>
+        <span class="state">Ingresar</span>
+      </button>
+    </form>
+    <footer></footer>
+    </p>
+  </div>
+  <!-- partial -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v=1.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js?v=1.0"></script>
 
   </body>
   </html>

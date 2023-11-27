@@ -9,3 +9,4 @@ echo $fun->acceso($_SESSION['vitae'],'admin');
 echo $fun->header(1,'Admin');
 echo $fun->HxH('Admin');
 ?>
+ 

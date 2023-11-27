@@ -1,37 +1,46 @@
 $(document).ready(function() {
-    // Inicializar el DataTable y obtener la instancia
-    //var dataTable = inicializarDataTable();
   const grid = document.getElementById('Hora');
   const TipoGrid = grid.getAttribute('data-archivo');
-
-  if(TipoGrid === 'operador'){
-    DataTableOperador();
+  let dataTable; // Variable para almacenar la referencia al DataTable
+  
+  if(TipoGrid === 'operador') {
+    dataTable = DataTableOperador();
+  }else if(TipoGrid === 'personal') {
+    dataTable = DataTablePersonal();
+  }else if(TipoGrid === 'motivo') {
+    dataTable = DataTableMotivo();
+  }else if(TipoGrid === 'tiempos') {
+    dataTable = DataTableTiempos();
   }
-  else
-  if (TipoGrid === 'personal'){
-    DataTablePersonal();
-  }
-  else
-  if (TipoGrid === 'motivo'){
-    DataTableMotivo();
-  }else
-  if(TipoGrid === 'tiempos'){
-    DataTableTiempos();
-  }
-
-  /*$('#ExpPDF').on('click', function () {
-    exportarAPDF();
-  });*/
-
+  
 });
 
-function exportarAPDF() {
-    table.buttons.exportData({ modifier: { selected: true } }, 'selected').pdf();
-}
 
 // Función para inicializar el DataTable
 function DataTableTiempos() {
     var table = $('#Hora').DataTable({ 
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Exportar a Excel', // Texto del botón
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'print',
+                text: 'Exportar a PDF',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        columnDefs: [ {
+            targets: -1,
+            visible: false
+        } ],
         'processing': true,
         'serverMethod': 'post',
         //"scrollX": true, 
@@ -48,13 +57,36 @@ function DataTableTiempos() {
             { "data": "MAQUINA" }, 
             { "data": "HORA" },
         ],
-        "language": languageOptions
+        "language": {"url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"},
+        pageLength: 100 
     });
     return table;
 }
 
 function DataTablePersonal() {
     var table = $('#Hora').DataTable({ 
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Exportar a Excel', // Texto del botón
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'print',
+                text: 'Exportar a PDF',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        columnDefs: [ {
+            targets: -1,
+            visible: false
+        } ],
         'processing': true,
         'serverMethod': 'post',
         //"scrollX": true, 
@@ -74,13 +106,36 @@ function DataTablePersonal() {
             { "data": "EMPRESA" },
             { "data": "SUCURSAL" }
         ],
-        "language": languageOptions
+        "language": {"url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"},
+        pageLength: 100 
     });
     return table;
 }
 
 function DataTableMotivo() {
     var table = $('#Hora').DataTable({ 
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Exportar a Excel', // Texto del botón
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'print',
+                text: 'Exportar a PDF',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        columnDefs: [ {
+            targets: -1,
+            visible: false
+        } ],
         'processing': true,
         'serverMethod': 'post',
         //"scrollX": true, 
@@ -101,13 +156,36 @@ function DataTableMotivo() {
             { "data": "NIVEL 3" },
             { "data": "NIVEL 4" }
         ],
-        "language": languageOptions
+        "language": {"url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"},
+        pageLength: 100 
     });
     return table;
 }
 
 function DataTableOperador() {
     var table = $('#Hora').DataTable({ 
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Exportar a Excel', // Texto del botón
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'print',
+                text: 'Exportar a PDF',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        columnDefs: [ {
+            targets: -1,
+            visible: false
+        } ],
         'processing': true,
         'serverMethod': 'post',
         "scrollX": true, 
@@ -140,7 +218,8 @@ function DataTableOperador() {
             { "data": "Supervisor" },
             { "data": "Sucursal" }
         ],
-        "language": languageOptions
+        "language": {"url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"},
+        pageLength: 100 
     });
     return table;
 }
@@ -157,6 +236,7 @@ var languageOptions = {
     "loadingRecords": "Cargando...",
     "processing": "Procesando...",
     "search": "Buscar:",
+    "columnDefs": "Columnas visibles",
     "zeroRecords": "No se encontraron registros coincidentes",
     "paginate": {
         "first": "Primero",

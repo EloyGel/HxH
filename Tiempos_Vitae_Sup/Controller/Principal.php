@@ -27,99 +27,88 @@
  $usuario = $_SESSION['vitae']['USU'];
  
 
- if(isset($_POST['guardar']))  //Click al botón de guardar
-  {
+ if(isset($_POST['guardar'])){  
    $estatus = $_POST['estatus'];
-
-   if($estatus == 'proceso')
-    {
-     $piezas = intval($_POST['piezas']);
-     try 
-      {
-       $params = array(':p1' => 'PROCESO',':p2' => $sucursal, ':p3' => $fechaini,':p4' => $fechafin,':p5' => $horaini,':p6' => $horafin,':p7' => $ot,
-                       ':p8' => $lote,':p9' => $producto,':p10' => $maquina,':p11' => $turno, ':p12' => $lider, ':p13' => $supervisor, ':p14' => $usuario, 
-                       ':p15' => $estatus,':p16' => $piezas,':p17' => '' );
-       $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17 ");
-       $query->execute($params); 
-      }catch (Exception $e) {
-       echo "Ocurrió un error con la base de datos: " . $e->getMessage();
-      }
+  if($estatus == 'proceso'){
+    $piezas = intval($_POST['piezas']);
+    try{
+      $params = array(':p1' => 'PROCESO',':p2' => $sucursal, ':p3' => $fechaini,':p4' => $fechafin,':p5' => $horaini,':p6' => $horafin,':p7' => $ot,
+                      ':p8' => $lote,':p9' => $producto,':p10' => $maquina,':p11' => $turno, ':p12' => $lider, ':p13' => $supervisor, ':p14' => $usuario, 
+                      ':p15' => $estatus,':p16' => $piezas,':p17' => '' );
+      $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17 ");
+      $query->execute($params); 
+    }catch (Exception $e) {
+      echo "<script>alert('Ocurrió un error con la base de datos');</script>";
     }
-   else
-   if($estatus == 'paro')
-    {
-     if(isset($_POST['motivo3'])){
-      $paro = 'm4-'.$_POST['motivo3'];
-     }else
-     if(isset($_POST['motivo2'])){
-      $paro = 'm3-'.$_POST['motivo2'];
-     }else
-     if(isset($_POST['motivo1'])){
-      $paro = 'm2-'.$_POST['motivo1'];
-     }else
-     if(isset($_POST['motivo'])){
-      $paro = 'm1-'.$_POST['motivo'];
-     }
-
-     try 
-      {
-        $params = array(':p1' => 'PARO',':p2' => $sucursal, ':p3' => $fechaini,':p4' => $fechafin,':p5' => $horaini,':p6' => $horafin,':p7' => $ot,
-                        ':p8' => $lote,':p9' => $producto,':p10' => $maquina,':p11' => $turno, ':p12' => $lider, ':p13' => $supervisor, ':p14' => $usuario, 
-                        ':p15' => $estatus,':p16' => 0,':p17' => $paro );
-        $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17 ");
-        $query->execute($params); 
-      }catch (Exception $e) {
-       echo "Ocurrió un error con la base de datos: " . $e->getMessage();
-      }
-    }
-    echo "<script>alert('Reporte guardado');</script>";
   }
   else
-  if(isset($_POST['Guardar_rechazo'])) 
-  {   
+   if($estatus == 'paro'){
+    if(isset($_POST['motivo3'])){
+      $paro = 'm4-'.$_POST['motivo3'];
+    }else
+    if(isset($_POST['motivo2'])){
+      $paro = 'm3-'.$_POST['motivo2'];
+    }else
+    if(isset($_POST['motivo1'])){
+      $paro = 'm2-'.$_POST['motivo1'];
+    }else
+    if(isset($_POST['motivo'])){
+      $paro = 'm1-'.$_POST['motivo'];
+    }
+
+    try{
+      $params = array(':p1' => 'PARO',':p2' => $sucursal, ':p3' => $fechaini,':p4' => $fechafin,':p5' => $horaini,':p6' => $horafin,':p7' => $ot,
+                      ':p8' => $lote,':p9' => $producto,':p10' => $maquina,':p11' => $turno, ':p12' => $lider, ':p13' => $supervisor, ':p14' => $usuario, 
+                      ':p15' => $estatus,':p16' => 0,':p17' => $paro );
+      $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17 ");
+      $query->execute($params); 
+    }catch (Exception $e) {
+      echo "<script>alert('Ocurrió un error con la base de datos');</script>";
+    }
+  }
+  echo "<script>alert('Reporte guardado');</script>";
+  }
+  else
+  if(isset($_POST['Guardar_rechazo'])) {   
    $piezas = intval($_POST['piezas']);
    $rechazo = intval($_POST['rechazo']);
 
-   try 
-    {
-     $params = array(':p1' => 'RECHAZO',':p2' => $sucursal, ':p3' => $fechaini,':p4' => $fechafin,':p5' => $horaini,':p6' => $horafin,':p7' => $ot,
-                     ':p8' => $lote,':p9' => $producto, ':p10' => $maquina,':p11' => $turno, ':p12' => $lider, ':p13' => $supervisor, ':p14' => $usuario, 
-                     ':p15' => '',':p16' => $piezas,':p17' => $rechazo );
-     $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17 ");
-     $query->execute($params);
-    }catch (Exception $e) {
-     echo "Ocurrió un error con la base de datos: " . $e->getMessage();
-    }
-    echo "<script>alert('Rechazo guardado');</script>";
+   try{
+    $params = array(':p1' => 'RECHAZO',':p2' => $sucursal, ':p3' => $fechaini,':p4' => $fechafin,':p5' => $horaini,':p6' => $horafin,':p7' => $ot,
+                    ':p8' => $lote,':p9' => $producto, ':p10' => $maquina,':p11' => $turno, ':p12' => $lider, ':p13' => $supervisor, ':p14' => $usuario, 
+                    ':p15' => '',':p16' => $piezas,':p17' => $rechazo );
+    $query = $conexion->obtenerConexion()->prepare("EXEC  GV.HORA_A_HORA_INS :p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17 ");
+    $query->execute($params);
+   }catch (Exception $e) {
+     echo "<script>alert('Ocurrió un error con la base de datos');</script>";
+     //echo "Ocurrió un error con la base de datos: " . $e->getMessage();
+   }
+  echo "<script>alert('Rechazo guardado');</script>";
   }
   echo "<script> window.location.replace('/Tiempos_VITAE_SUP/View/Operador/HxH.php'); </script>";
 
 
-  function dividirOT($valor) 
-  {
+  function dividirOT($valor) {
    $partes = explode("-", $valor);
 
-   if(count($partes) == 2) // Dividir la cadena en tres variables
-    {              
-     $primerNumero = $partes[0];
-     $segundoNumero = $partes[1];
+   if(count($partes) == 2){  // Dividir la cadena en tres variables             
+    $primerNumero = $partes[0];
+    $segundoNumero = $partes[1];
 
-     return array("v1" => $primerNumero, "v2" => $segundoNumero);
-    } 
+    return array("v1" => $primerNumero, "v2" => $segundoNumero);
+   } 
    else{return false;} // Manejar un valor incorrecto
   }
 
-  function dividirProd($valor) 
-  {
+  function dividirProd($valor){
    $partes = explode("-", $valor);
 
-   if(count($partes) == 3) // Dividir la cadena en tres variables
-    {              
-     $primerNumero = $partes[0];
-     $segundoNumero = $partes[1];
+   if(count($partes) == 3){ // Dividir la cadena en tres variables            
+    $primerNumero = $partes[0];
+    $segundoNumero = $partes[1];
 
-     return array("v1" => $primerNumero, "v2" => $segundoNumero);
-    } 
+    return array("v1" => $primerNumero, "v2" => $segundoNumero);
+   } 
    else{return false;} // Manejar un valor incorrecto
   }
 

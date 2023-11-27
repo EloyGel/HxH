@@ -14,44 +14,20 @@ if(isset($_POST['add'])){
    { 
     header("location:/Tiempos_Vitae_Sup/View/error.html");
    } 
+   echo $fun->header(1,'Admin');
 ?>
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../img/timer.ico">
-    <title>HxH</title>
-    <link href="../../css/styles.css" rel="stylesheet"> <!--Hoja de estilos-->
-
-  </head>
-  <body>
-  <header>
-  <div class="logo"> 
-    <section class="logo-T">
-        <a href="../../index.html">
-          <picture>
-            <source srcset="../../img/logo_vitae_N.png" type="image/png" alt="Vitae">
-            <img class="logo-tomza" src="../../img/logo_vitae_N.png" alt="Vitae">
-          </picture>
-        </a>  
-    </section>
-   </div>
-  </header> 
+ 
   <main role="main" class="">
     <div class="contenedor sombra">
      <p class="f1">Vitae Acondicionamiento <span id="fechaActual"></span></p>
       <form class="" method="post" id="formulario" action="../../Controller/Catalagos.php">
         <div class="div">
           <label class="f2" for="antefirma">ANTEFIRMA</label>
-          <input type="Text" name="ante" class="t1" id="ante" placeholder="Escribe la antefirma">
+          <input type="Text" maxlength="45" required name="ante" class="t1" id="ante" placeholder="Escribe la antefirma">
         </div>
         <div class="div">
           <label class="f2" for="nombre">NOMBRE</label>
-          <input type="Text" name="nombre" class="t1" id="ante" placeholder="Escribe el nombre">
+          <input type="Text" maxlength="200" required name="nombre" class="t1" id="ante" placeholder="Escribe el nombre">
         </div>
         <div class="div">
           <label class="f2" for="empresa">EMPRESA</label>
@@ -93,9 +69,6 @@ if(isset($_POST['add'])){
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-    <script language="javascript"> //Combo Dinamico
-
-    </script>
 
   </body>
 </html>

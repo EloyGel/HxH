@@ -14,33 +14,9 @@ if(isset($_POST['add'])){
    {  
     header("location:/Tiempos_Vitae_Sup/View/error.html");
    } 
+   echo $fun->header(5,'Admin');
 ?>
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../img/timer.ico">
-    <title>HxH</title>
-    <link href="../../css/styles.css" rel="stylesheet"> <!--Hoja de estilos-->
-
-  </head>
-  <body>
-  <header>
-  <div class="logo"> 
-    <section class="logo-T">
-        <a href="../../index.html">
-          <picture>
-            <source srcset="../../img/logo_vitae_N.png" type="image/png" alt="Vitae">
-            <img class="logo-tomza" src="../../img/logo_vitae_N.png" alt="Vitae">
-          </picture>
-        </a>  
-    </section>
-   </div>
-  </header> 
+ 
   <main role="main" class="">
     <div class="contenedor sombra">
      <p class="f1">Agregar nuevo motivo</p>
@@ -68,25 +44,25 @@ if(isset($_POST['add'])){
         <div id="n1">
           <div class="div" >
             <label class="f2" for="n1">Nivel 1</label>
-            <input type="Text" name="n1" id="n1" class="t1" required placeholder="Escribe el nivel 1 del motivo">
+            <input type="Text" maxlength="200" name="n1" id="n1" class="t1" required placeholder="Escribe el nivel 1 del motivo">
           </div>
         </div>
         <div id="n2">
           <div class="div" >
             <label class="f2" for="n2">Nivel 2</label>
-            <input type="Text" name="n2" id="n2" class="t1"  placeholder="Escribe el nivel 2 del motivo">
+            <input type="Text" maxlength="200" name="n2" id="n2" class="t1"  placeholder="Escribe el nivel 2 del motivo">
           </div>
         </div>
         <div id="n3">
           <div class="div" >
             <label class="f2" for="n3">Nivel 3</label>
-            <input type="Text" name="n3" id="n3" class="t1"  placeholder="Escribe el nivel 3 del motivo">
+            <input type="Text" maxlength="200" name="n3" id="n3" class="t1"  placeholder="Escribe el nivel 3 del motivo">
           </div>
         </div>
         <div id="n4">
           <div class="div" >
             <label class="f2" for="n4">Nivel 4</label>
-            <input type="Text" name="n4" id="n4" class="t1"  placeholder="Escribe el nivel 4 del motivo">
+            <input type="Text" maxlength="200" name="n4" id="n4" class="t1"  placeholder="Escribe el nivel 4 del motivo">
           </div>
         </div>
 <!------------------------------------------------------------------------ Botón de guardar ------------------------------------------------------------------->
@@ -98,7 +74,6 @@ if(isset($_POST['add'])){
     </main>
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')</script>
     <script src="../../js/popper.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
 
@@ -109,9 +84,6 @@ if(isset($_POST['add'])){
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-    <script language="javascript"> //Combo Dinamico
-
-    </script>
 
   </body>
 </html>
