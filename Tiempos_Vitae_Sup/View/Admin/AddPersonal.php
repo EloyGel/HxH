@@ -6,15 +6,13 @@ include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
 echo $fun->acceso($_SESSION['vitae'],'admin');
+$_SESSION['vitae']['TIME'] = time();
 
-if(isset($_POST['add'])){
-    //echo '<script language="javascript">alert("Bienvenido");</script>';
-   }
-   else
-   { 
-    header("location:/Tiempos_Vitae_Sup/View/error.html");
-   } 
-   echo $fun->header(1,'Admin');
+if(!isset($_POST['add'])){ 
+  header("location:/Tiempos_Vitae_Sup/View/error.html");
+}
+
+echo $fun->header(6,'Admin');
 ?>
  
   <main role="main" class="">
@@ -58,7 +56,6 @@ if(isset($_POST['add'])){
     </main>
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')</script>
     <script src="../../js/popper.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
 

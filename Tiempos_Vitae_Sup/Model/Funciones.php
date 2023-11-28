@@ -22,9 +22,30 @@
           return $query->fetchAll();
 
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+          echo '<script language="javascript">alert("Error: '.$e->getMessage().'");</script>';
         }
       }
+
+      public function time($sesion){
+        if((time() - $sesion['TIME'] > 900)) {   // Si la última actividad fue hace más de 15 minutos (900 segundos), destruye la sesión
+          session_unset();     // Elimina todas las variables de sesión
+          session_destroy();   // Destruye la sesión
+          echo "<script> window.location.replace('/obj_mps/index.php'); </script>";
+        }
+      }
+
+      public function acceso($sesion,$permiso) {
+        if($sesion['PERFIL'] != null || $sesion['PERFIL'] !=''){
+          if($sesion['PERFIL'] == 'admin' || $sesion['PERFIL'] == $permiso)
+            {
+             echo $this->time($sesion); 
+            }else{
+              header("location:/Tiempos_Vitae_Sup/View/error.html");
+            }
+        }else
+        {header("location:/Tiempos_Vitae_Sup/View/error.html");}
+      }
+
 ////////////////////////////////////////////////////////////Función del LogIn/////////////////////////////////////////////////////////
       /*public function obtenerProducto() {
         try {
@@ -54,7 +75,7 @@
           return $html;
 
           } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+            echo '<script language="javascript">alert("Error: '.$e->getMessage().'");</script>';
           }
        }
 
@@ -73,7 +94,7 @@
           return $html;
 
           } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+            echo '<script language="javascript">alert("Error: '.$e->getMessage().'");</script>';
           }
        }
 
@@ -92,7 +113,7 @@
           return $html;
 
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+          echo '<script language="javascript">alert("Error: '.$e->getMessage().'");</script>';
         }
       }
 
@@ -111,7 +132,7 @@
           return $html;
 
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+          echo '<script language="javascript">alert("Error: '.$e->getMessage().'");</script>';
         }
       }
 
@@ -130,7 +151,7 @@
           return $html;
 
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+          echo '<script language="javascript">alert("Error: '.$e->getMessage().'");</script>';
         }
       }
 ////////////////////////////////////////////////////////////Funciones de información general///////////////////////////////////////////////
@@ -149,7 +170,7 @@
           return $html;
 
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+          echo '<script language="javascript">alert("Error: '.$e->getMessage().'");</script>';
         }
       }
 ////////////////////////////////////////////////////////////Función de SETUP//////////////////////////////////////////////////////////////
@@ -168,7 +189,7 @@
           return $html;
 
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+          echo '<script language="javascript">alert("Error: '.$e->getMessage().'");</script>';
         }
       }
 ////////////////////////////////////////////////////////////Función de Proceso//////////////////////////////////////////////////////////////
@@ -187,7 +208,7 @@
           return $html;
 
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+          echo '<script language="javascript">alert("Error: '.$e->getMessage().'");</script>';
         }
       }
 
@@ -216,15 +237,7 @@
 
 ////////////////////////////////////////////////////////////Funciones hora y minutos//////////////////////////////////////////////////
 
-public function acceso($sesion,$permiso) {
-  if($sesion['PERFIL'] != null || $sesion['PERFIL'] !=''){
-    if($sesion['PERFIL'] == 'admin' || $sesion['PERFIL'] == $permiso)
-      {}else{
-        header("location:/Tiempos_Vitae_Sup/View/error.html");
-      }
-  }else
-  {header("location:/Tiempos_Vitae_Sup/View/error.html");}
-}
+
 
 ////////////////////////////////////////////////////////////Validación de acceso//////////////////////////////////////////////////
 

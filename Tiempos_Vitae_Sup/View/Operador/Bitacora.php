@@ -6,7 +6,8 @@ include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
 echo $fun->acceso($_SESSION['vitae'],'operador');
+$_SESSION['vitae']['TIME'] = time();
 echo $fun->header(3,'Ope');
-echo $fun->Bitacora('operador');
+echo $fun->Bitacora('operador'); 
 ?>
 

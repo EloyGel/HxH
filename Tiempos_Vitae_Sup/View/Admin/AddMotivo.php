@@ -5,16 +5,14 @@ error_reporting(1);
 include_once('../../Model/Funciones.php');
 
 $fun = new Funciones();
-echo $fun->acceso($_SESSION['vitae'],'admin');
+echo $fun->acceso($_SESSION['vitae'],'admin'); 
+$_SESSION['vitae']['TIME'] = time();
 
-if(isset($_POST['add'])){
-    //echo '<script language="javascript">alert("Bienvenido");</script>';
-   }
-   else
-   {  
-    header("location:/Tiempos_Vitae_Sup/View/error.html");
-   } 
-   echo $fun->header(5,'Admin');
+if(!isset($_POST['add'])){
+  header("location:/Tiempos_Vitae_Sup/View/error.html");
+}
+
+echo $fun->header(5,'Admin');
 ?>
  
   <main role="main" class="">
