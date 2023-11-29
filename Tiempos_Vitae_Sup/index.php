@@ -8,4 +8,4 @@ include_once('Model/Funciones.php');
 
 $fun = new Funciones();
 echo $fun->Index();
-?>
+?> 

@@ -1,6 +1,5 @@
 <?PHP
  include_once('../Model/Funciones.php');
- session_start();
 
  if ((isset($_POST['usu']) && $_POST['pass'])){
       $fun = new Funciones();
@@ -9,7 +8,9 @@
 
       $resultado = $fun->login($pam1,$pam2);
 
- if(count($resultado) >= 1){       
+ if(count($resultado) >= 1){    
+  session_start();
+     
   $datos = array('USU' => $resultado[0]['ID'], 'PERFIL' => $resultado[0]['PERFIL'],'TIME' => time());
   $_SESSION['vitae'] = $datos;
 
