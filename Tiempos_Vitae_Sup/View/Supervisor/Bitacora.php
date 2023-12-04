@@ -10,3 +10,4 @@ $_SESSION['vitae']['TIME'] = time();
 echo $fun->header(3,'Sup');
 echo $fun->Bitacora('supervisor');
 ?>
+ 

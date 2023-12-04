@@ -475,8 +475,8 @@ public function HxH($fecha){
           <label class="f2" for="estatus">ESTATUS</label>
           <select class="s1" name="estatus" id="estatus" required>
             <option selected disabled value="">Selecciona una opción</option>
-            <option value="proceso">PROCESO</option>
-            <option value="paro">PARO</option>
+            <option value="PROCESO">PROCESO</option>
+            <option value="PARO">PARO</option>
           </select>
       </div>
         <!------------------------------------------------------------------------- Informacion del proceso ------------------------------------------------>
@@ -690,8 +690,18 @@ public function Bitacora($tipo){
   <h1>Registros del día <span id="fechaActual"></span></h1>
   </div>
 
+  <div id="datepicker-container">
+    <label for="datepicker-start">Fecha Inicio:</label>
+    <input type="text" id="datepicker-start">
+
+    <label for="datepicker-end">Fecha Fin:</label>
+    <input type="text" id="datepicker-end">
+
+    <button id="search-button">Buscar</button>
+  </div>
+
   <div class="contenedor grid-container">
-  <table id="Hora" class="grid-text display table grid-item" data-archivo="'.$tipo.'">
+  <table id="Hora" class="grid-text display table grid-item" data-archivo="'.$tipo.'"> 
     <thead>
       <tr>
         <th>Fecha Inicio</th>
@@ -726,6 +736,11 @@ public function Bitacora($tipo){
   <script src="../../js/library/jquery.dataTables.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   -->
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css?v=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.0.js?v=1.0"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js?v=1.0"></script>
+
 
   <script src="https://code.jquery.com/jquery-3.7.0.js?v=1.0"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js?v=1.0"></script>

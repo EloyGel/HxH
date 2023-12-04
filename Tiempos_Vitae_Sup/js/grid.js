@@ -11,6 +11,8 @@ $(document).ready(function() {
     dataTable = DataTableMotivo();
   }else if(TipoGrid === 'tiempos') {
     dataTable = DataTableTiempos();
+  }else if(TipoGrid === 'supervisor'){
+    dataTable = DataTableOperador();
   }
   
 });
@@ -138,7 +140,7 @@ function DataTableMotivo() {
         } ],
         'processing': true,
         'serverMethod': 'post',
-        //"scrollX": true, 
+        "scrollX": true, 
         "ajax": {
             "url": "../../Controller/Grid.php",
             "type": "POST",
@@ -160,7 +162,7 @@ function DataTableMotivo() {
         pageLength: 100 
     });
     return table;
-}
+} 
 
 function DataTableOperador() {
     var table = $('#Hora').DataTable({ 

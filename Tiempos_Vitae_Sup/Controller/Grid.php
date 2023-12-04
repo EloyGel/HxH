@@ -54,7 +54,7 @@
     $resultados = array();
 
     foreach ($data as $fila) {
-        $resultado = array( 
+        $resultado = array(  
           "Fecha_Inicio" => $fila["Fecha_Inicio"],
           "Fecha_Fin" => $fila["Fecha_Fin"],
           "Hora_Inicio" => $fila["Hora_Inicio"],
